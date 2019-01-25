@@ -1,0 +1,4 @@
+# Create symlink with readable names for MTD devices.
+# Example: for SPI Flash will be created /dev/mtd/by-name/spi0.0
+# For NAND Flash will be created /dev/mtd/by-name/arasan_nfc
+SUBSYSTEM=="mtd", ATTR{name}!="", SYMLINK+="mtd/by-name/$attr{name}"
