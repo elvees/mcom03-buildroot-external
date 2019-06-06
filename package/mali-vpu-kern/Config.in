@@ -1,0 +1,30 @@
+config BR2_PACKAGE_MALI_VPU_KERN
+	bool "mali-vpu-kern"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Linux kernel space driver for Mali VPU engine.
+
+if BR2_PACKAGE_MALI_VPU_KERN
+
+config BR2_PACKAGE_MALI_VPU_KERN_DEBUG
+	bool "driver debug"
+	help
+	  This enabled debug output for the Mali VPU driver.
+
+config BR2_PACKAGE_MALI_VPU_KERN_DISABLE_WDOG
+	bool "disable watchdog"
+	help
+	  Disable the watchdog that detects frozen video sessions.
+
+choice
+	prompt "Choose power saving mode"
+config BR2_PACKAGE_MALI_VPU_KERN_DVFS
+	bool "Use DVFS"
+config BR2_PACKAGE_MALI_VPU_KERN_CLOCK_GATING
+	bool "Use HW clock gating"
+endchoice
+
+endif
+
+comment "mali-vpu-kern needs Linux kernel"
+	depends on !BR2_LINUX_KERNEL
