@@ -1,2 +1,3 @@
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-libs/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-kern/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/linux-starter/Config.in"

@@ -1,0 +1,5 @@
+config BR2_PACKAGE_LINUX_STARTER
+	bool "linux-starter"
+	help
+	  Simple starter for MCom-03. Provides minimal
+	  features to start Linux.
