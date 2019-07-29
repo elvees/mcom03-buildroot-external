@@ -17,11 +17,13 @@
 # * fulfills conditions required for Linux.
 # * marks that CPU timer has 10MHz clock speed.
 # * jumps to the Linux image on primary CPU.
+# * parks all secondary CPUs until the Linux resumes them.
 #
 # [1] https://www.kernel.org/doc/Documentation/arm64/booting.txt
 #
 ################################################################################
 
+.equ CPUs,		4		/* CPU count */
 .equ SCR_NS,		1 << 0		/* Non-secure EL1 */
 .equ SCR_HCE,		1 << 8		/* HVC enable */
 .equ SCR_RW,		1 << 10		/* 64-bit EL2 */
@@ -108,6 +110,13 @@ el2_switched:
 	mrs	x0, cntv_ctl_el0
 	isb
 
+	/* split CPUs */
+	mrs 	x4, MPIDR_EL1
+	and 	x4, x4, #0xff
+
+	/* park secondary CPUs */
+	cbnz 	x4, secondary_cpu
+
 	/* Primary CPU */
 	ldr	x21, =IMG_addr
 	ldr	x0, =DTB_addr
@@ -134,3 +143,31 @@ d_cache_loop:
 	b.lt	d_cache_loop
 	dsb	ish
 	ret
+
+/* cpu_release_array has predefined address, because it is used in DTB */
+/* 0xC0000000 + 0x800 represents CPU0 spin addr. Not used.
+ * 0xC0000000 + 0x808 represents CPU1 spin addr. Used.
+ * 0xC0000000 + 0x810 represents CPU2 spin addr. Used.
+ * 0xC0000000 + 0x818 represents CPU3 spin addr. Used.
+ */
+
+.org 0x800
+cpu_release_array:
+	.rep	CPUs
+	.quad	0
+	.endr
+
+secondary_cpu:
+	adr	x5, cpu_release_array
+
+secondary_wait:
+	wfe
+	ldr	x6, [x5, x4, lsl 3]
+	cbz	x6, secondary_wait
+	mov	x0, xzr
+	mov	x1, xzr
+	mov	x2, xzr
+	mov	x3, xzr
+
+	/* jump to kernel */
+	blr	x6
