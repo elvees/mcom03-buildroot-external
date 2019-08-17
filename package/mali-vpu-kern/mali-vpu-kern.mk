@@ -5,7 +5,7 @@
 ################################################################################
 
 MALI_VPU_KERN_VERSION = master
-MALI_VPU_KERN_SITE = https://gerrit.elvees.com/linux/modules/mali-vpu
+MALI_VPU_KERN_SITE = ssh://gerrit.elvees.com:29418/linux/modules/mali-vpu
 MALI_VPU_KERN_SITE_METHOD = git
 MALI_VPU_KERN_LICENSE = GPL-2
 MALI_VPU_KERN_INSTALL_STAGING = YES

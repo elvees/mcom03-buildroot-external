@@ -5,7 +5,7 @@
 ################################################################################
 
 MALI_VPU_LIBS_VERSION = master
-MALI_VPU_LIBS_SITE = https://gerrit.elvees.com/lib/mali-vpu
+MALI_VPU_LIBS_SITE = ssh://gerrit.elvees.com:29418/lib/mali-vpu
 MALI_VPU_LIBS_SITE_METHOD = git
 MALI_VPU_LIBS_LICENSE = Proprietary
 
