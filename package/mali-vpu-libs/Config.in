@@ -2,10 +2,6 @@ config BR2_PACKAGE_MALI_VPU_LIBS
 	bool "mali-vpu-libs"
 	select BR2_PACKAGE_JPEG
 	select BR2_PACKAGE_JPEG_TURBO
-	depends on BR2_PACKAGE_MALI_VPU_KERN
-
+	select BR2_PACKAGE_MALI_VPU_KERN
 	help
 	  Linux user space driver for Mali VPU engine.
-
-comment "mali-vpu-libs needs mali-vpu-kern"
-	depends on !BR2_PACKAGE_MALI_VPU_KERN
