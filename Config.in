@@ -11,6 +11,7 @@ if BR2_LINUX_KERNEL
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-libs/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-kern/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/linux-starter/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/rtl-test-stop/Config.in"
 
 endif
 endif
