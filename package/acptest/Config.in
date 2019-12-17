@@ -1,0 +1,4 @@
+config BR2_PACKAGE_ACPTEST
+	bool "acptest"
+	help
+	  A kernel module for testing ACP-port on MCom-03.
