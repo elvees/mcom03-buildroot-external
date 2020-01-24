@@ -1,10 +1,10 @@
 comment "MCom-03 support needs AArch64 architecture"
-    depends on !BR2_aarch64
+	depends on !BR2_aarch64
 
 if BR2_aarch64
 
 comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
-    depends on !BR2_LINUX_KERNEL
+	depends on !BR2_LINUX_KERNEL
 
 if BR2_LINUX_KERNEL
 
