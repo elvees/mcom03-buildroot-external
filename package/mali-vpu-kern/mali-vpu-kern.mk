@@ -41,7 +41,7 @@ endif
 
 # platform option
 MALI_VPU_KERN_PLATFORM = \
-	CONFIG_MALI_VPU_VEX7=y
+	CONFIG_MALI_VPU_MCOM03=y
 
 # user space files
 UAPI_FILES= \
