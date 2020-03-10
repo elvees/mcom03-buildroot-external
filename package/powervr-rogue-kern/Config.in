@@ -1,0 +1,12 @@
+config BR2_PACKAGE_POWERVR_ROGUE_KERN
+	bool "powervr-rogue-kern"
+	help
+	  Kernel space driver for PowerVR Rogue GPU.
+
+if BR2_PACKAGE_POWERVR_ROGUE_KERN
+config BR2_PACKAGE_POWERVR_ROGUE_KERN_DEBUG
+	bool "debug build"
+	help
+	  Useful for testing. If some tests fail this option
+	  should be enabled.
+endif
