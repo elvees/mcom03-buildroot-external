@@ -1,0 +1,24 @@
+config BR2_PACKAGE_POWERVR_ROGUE_LIBS
+	bool "powervr-rogue-libs"
+	depends on BR2_TOOLCHAIN_HAS_THREADS
+	select BR2_PACKAGE_LIBDRM
+	select BR2_PACKAGE_POWERVR_ROGUE_KERN
+	help
+	  User space driver for PowerVR Rogue GPU.
+
+if BR2_PACKAGE_POWERVR_ROGUE_LIBS
+
+config BR2_PACKAGE_POWERVR_ROGUE_LIBS_OFFSCREEN_TESTS
+	bool "off-screen tests"
+	help
+	  By default tests are on-screen. It can lead to
+	  difficult GPU testing if dislpay not available.
+	  Off-screen tests are more suitable for this.
+
+config BR2_PACKAGE_POWERVR_ROGUE_LIBS_DEBUG
+	bool "debug build"
+	help
+	  Useful for testing. If some tests fail this option
+	  should be enabled.
+
+endif
