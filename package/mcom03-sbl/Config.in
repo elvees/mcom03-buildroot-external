@@ -1,0 +1,10 @@
+config BR2_PACKAGE_MCOM03_SBL
+	bool "mcom03-sbl"
+	depends on BR2_PACKAGE_DDRINIT
+	depends on BR2_TARGET_ARM_TRUSTED_FIRMWARE
+	depends on BR2_TARGET_UBOOT
+	help
+	  Second bootloader for MCom-03.
+
+comment "MCom-03 SBL needs ddrinit, TF-A and U-Boot to be built"
+	depends on !BR2_PACKAGE_DDRINIT || !BR2_TARGET_ARM_TRUSTED_FIRMWARE || !BR2_TARGET_UBOOT
