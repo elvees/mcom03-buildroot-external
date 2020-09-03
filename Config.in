@@ -9,6 +9,7 @@ comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
 if BR2_LINUX_KERNEL
 
 source "$BR2_EXTERNAL_MCOM03_PATH/package/acptest/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/isp-ddk/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/linux-starter/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-libs/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-kern/Config.in"

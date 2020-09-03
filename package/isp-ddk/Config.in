@@ -1,0 +1,26 @@
+menuconfig BR2_PACKAGE_ISP_DDK
+	bool "isp-ddk"
+	help
+	  Build kernel driver, libraries and test
+	  applications for PowerVR V2505 ISP.
+
+if BR2_PACKAGE_ISP_DDK
+
+config BR2_PACKAGE_ISPC_TEST
+	bool "ispc_test"
+	default y
+	help
+	  Install ISPC test.
+
+config BR2_PACKAGE_ISPC_LOOP
+	bool "ispc_loop"
+	default y
+	help
+	  Install ISPC loop test.
+
+config BR2_PACKAGE_ISP_DRIVER_TEST
+	bool "driver_test"
+	default y
+	help
+	  Install ISP driver test.
+endif
