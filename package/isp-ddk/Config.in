@@ -6,19 +6,19 @@ menuconfig BR2_PACKAGE_ISP_DDK
 
 if BR2_PACKAGE_ISP_DDK
 
-config BR2_PACKAGE_ISPC_TEST
+config BR2_PACKAGE_ISP_DDK_ISPC_TEST
 	bool "ispc_test"
 	default y
 	help
 	  Install ISPC test.
 
-config BR2_PACKAGE_ISPC_LOOP
+config BR2_PACKAGE_ISP_DDK_ISPC_LOOP
 	bool "ispc_loop"
 	default y
 	help
 	  Install ISPC loop test.
 
-config BR2_PACKAGE_ISP_DRIVER_TEST
+config BR2_PACKAGE_ISP_DDK_DRIVER_TEST
 	bool "driver_test"
 	default y
 	help
