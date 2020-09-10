@@ -23,4 +23,9 @@ config BR2_PACKAGE_ISP_DDK_DRIVER_TEST
 	default y
 	help
 	  Install ISP driver test.
+
+config BR2_PACKAGE_ISP_DDK_SENSOR_PARAXDMA_LINUX
+	bool "PARAXDMA support"
+	help
+	  Support PARAXDMA sensor on HAPS
 endif
