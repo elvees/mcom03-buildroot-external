@@ -10,6 +10,7 @@ POWERVR_ROGUE_LIBS_SITE_METHOD = git
 POWERVR_ROGUE_LIBS_LICENSE = Proprietary
 
 POWERVR_ROGUE_LIBS_DEPENDENCIES = libdrm
+POWERVR_ROGUE_LIBS_PROVIDES = libegl libgles
 
 # this package requires custom llvm
 POWERVR_ROGUE_LIBS_LLVM_DIR=$(@D)/llvm
