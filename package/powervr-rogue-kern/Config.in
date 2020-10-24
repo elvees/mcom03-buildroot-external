@@ -9,4 +9,10 @@ config BR2_PACKAGE_POWERVR_ROGUE_KERN_DEBUG
 	help
 	  Useful for testing. If some tests fail this option
 	  should be enabled.
+
+config BR2_PACKAGE_POWERVR_ROGUE_KERN_PDUMP
+	bool "pdump build"
+	help
+	  PDump is used for snapshoting and playing back the
+	  applications.
 endif
