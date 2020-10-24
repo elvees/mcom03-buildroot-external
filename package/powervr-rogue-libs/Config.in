@@ -23,6 +23,12 @@ config BR2_PACKAGE_POWERVR_ROGUE_LIBS_DEBUG
 	  Useful for testing. If some tests fail this option
 	  should be enabled.
 
+config BR2_PACKAGE_POWERVR_ROGUE_LIBS_PDUMP
+	bool "pdump build"
+	help
+	  PDump is used for snapshoting and playing back the
+	  applications.
+
 config BR2_PACKAGE_PROVIDES_LIBEGL
 	default "powervr-rogue-libs"
 
