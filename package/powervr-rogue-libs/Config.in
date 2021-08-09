@@ -3,8 +3,12 @@ config BR2_PACKAGE_POWERVR_ROGUE_LIBS
 	depends on BR2_TOOLCHAIN_HAS_THREADS
 	select BR2_PACKAGE_LIBDRM
 	select BR2_PACKAGE_POWERVR_ROGUE_KERN
+	select BR2_PACKAGE_HOST_PYTHON
+	select BR2_PACKAGE_HOST_FLEX
+	select BR2_PACKAGE_HOST_BISON
 	select BR2_PACKAGE_HAS_LIBEGL
 	select BR2_PACKAGE_HAS_LIBGLES
+	select BR2_PACKAGE_HAS_LIBOPENCL
 	help
 	  User space driver for PowerVR Rogue GPU.
 
@@ -33,6 +37,9 @@ config BR2_PACKAGE_PROVIDES_LIBEGL
 	default "powervr-rogue-libs"
 
 config BR2_PACKAGE_PROVIDES_LIBGLES
+	default "powervr-rogue-libs"
+
+config BR2_PACKAGE_PROVIDES_LIBOPENCL
 	default "powervr-rogue-libs"
 
 endif

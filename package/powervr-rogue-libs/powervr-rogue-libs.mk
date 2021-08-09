@@ -9,8 +9,14 @@ POWERVR_ROGUE_LIBS_SITE = ssh://gerrit.elvees.com:29418/lib/powervr-rogue
 POWERVR_ROGUE_LIBS_SITE_METHOD = git
 POWERVR_ROGUE_LIBS_LICENSE = Proprietary
 
-POWERVR_ROGUE_LIBS_DEPENDENCIES = libdrm
-POWERVR_ROGUE_LIBS_PROVIDES = libegl libgles
+POWERVR_ROGUE_LIBS_DEPENDENCIES = host-bison \
+	host-flex \
+	host-python \
+	libdrm
+
+POWERVR_ROGUE_LIBS_INSTALL_STAGING = YES
+
+POWERVR_ROGUE_LIBS_PROVIDES = libopencl libegl libgles
 
 # this package requires custom llvm
 POWERVR_ROGUE_LIBS_LLVM_DIR=$(@D)/llvm
@@ -69,6 +75,11 @@ define POWERVR_ROGUE_LIBS_BUILD_CMDS
 
 	# Build this package
 	$(MAKE) -C $(@D) $(POWERVR_ROGUE_LIBS_SETTINGS)
+endef
+
+define POWERVR_ROGUE_LIBS_INSTALL_STAGING_CMDS
+	cp -dpfr $(@D)/include/khronos/* $(STAGING_DIR)/usr/include/
+	$(MAKE) -C $(@D) $(POWERVR_ROGUE_LIBS_SETTINGS) DISCIMAGE=$(STAGING_DIR) install
 endef
 
 define POWERVR_ROGUE_LIBS_INSTALL_TARGET_CMDS
