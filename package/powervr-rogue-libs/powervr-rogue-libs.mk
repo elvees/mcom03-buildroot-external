@@ -68,6 +68,7 @@ endif
 define POWERVR_ROGUE_LIBS_BUILD_CMDS
 	# Build LLVM, NNVM for this package
 	cd $(@D); \
+	    set -e; \
 	    CROSS_COMPILE=$(TARGET_CROSS) ./build/linux/tools/prepare-llvm.sh \
 	        -j$(PARALLEL_JOBS) $(POWERVR_ROGUE_LIBS_LLVM_DIR) Release; \
 	    CROSS_COMPILE=$(TARGET_CROSS) SKIP_CHECKSUM_CHECK=1 ./build/linux/tools/prepare-nnvm.sh \
