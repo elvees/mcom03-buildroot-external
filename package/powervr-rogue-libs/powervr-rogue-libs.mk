@@ -68,14 +68,19 @@ endif
 define POWERVR_ROGUE_LIBS_BUILD_CMDS
 	# Build LLVM, NNVM for this package
 	cd $(@D); \
-	    set -e; \
-	    CROSS_COMPILE=$(TARGET_CROSS) ./build/linux/tools/prepare-llvm.sh \
-	        -j$(PARALLEL_JOBS) $(POWERVR_ROGUE_LIBS_LLVM_DIR) Release; \
-	    CROSS_COMPILE=$(TARGET_CROSS) SKIP_CHECKSUM_CHECK=1 ./build/linux/tools/prepare-nnvm.sh \
-	        -j$(PARALLEL_JOBS) $(POWERVR_ROGUE_LIBS_NNVM_DIR) Release
+		set -e; \
+		$(HOST_MAKE_ENV) ./build/linux/tools/prepare-llvm.sh \
+			-j$(PARALLEL_JOBS) $(POWERVR_ROGUE_LIBS_LLVM_DIR) Release; \
+		$(TARGET_MAKE_ENV) CROSS_COMPILE=$(TARGET_CROSS) SYSROOT=$(STAGING_DIR) \
+			./build/linux/tools/prepare-llvm.sh \
+			-j$(PARALLEL_JOBS) $(POWERVR_ROGUE_LIBS_LLVM_DIR) Release; \
+		$(TARGET_MAKE_ENV) CROSS_COMPILE=$(TARGET_CROSS) SYSROOT=$(STAGING_DIR) \
+		SKIP_CHECKSUM_CHECK=1 ./build/linux/tools/prepare-nnvm.sh \
+			-j$(PARALLEL_JOBS) $(POWERVR_ROGUE_LIBS_NNVM_DIR) Release
 
 	# Build this package
-	$(MAKE) -C $(@D) $(POWERVR_ROGUE_LIBS_SETTINGS)
+	$(TARGET_MAKE_ENV) LIBCLANG_PATH=$(@D)/llvm/llvm.x86_64/lib/libclang.so \
+		$(MAKE) -C $(@D) $(POWERVR_ROGUE_LIBS_SETTINGS)
 endef
 
 define POWERVR_ROGUE_LIBS_INSTALL_STAGING_CMDS
