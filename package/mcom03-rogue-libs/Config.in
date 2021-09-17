@@ -1,8 +1,8 @@
-config BR2_PACKAGE_POWERVR_ROGUE_LIBS
-	bool "powervr-rogue-libs"
+config BR2_PACKAGE_MCOM03_ROGUE_LIBS
+	bool "mcom03-rogue-libs"
 	depends on BR2_TOOLCHAIN_HAS_THREADS
 	select BR2_PACKAGE_LIBDRM
-	select BR2_PACKAGE_POWERVR_ROGUE_KERN
+	select BR2_PACKAGE_MCOM03_ROGUE_MODULES
 	select BR2_PACKAGE_HOST_PYTHON
 	select BR2_PACKAGE_HOST_FLEX
 	select BR2_PACKAGE_HOST_BISON
@@ -10,36 +10,36 @@ config BR2_PACKAGE_POWERVR_ROGUE_LIBS
 	select BR2_PACKAGE_HAS_LIBGLES
 	select BR2_PACKAGE_HAS_LIBOPENCL
 	help
-	  User space driver for PowerVR Rogue GPU.
+	  User space libraries for MCom-03 PowerVR Rogue GPU.
 
-if BR2_PACKAGE_POWERVR_ROGUE_LIBS
+if BR2_PACKAGE_MCOM03_ROGUE_LIBS
 
-config BR2_PACKAGE_POWERVR_ROGUE_LIBS_OFFSCREEN_TESTS
+config BR2_PACKAGE_MCOM03_ROGUE_LIBS_OFFSCREEN_TESTS
 	bool "off-screen tests"
 	help
 	  By default tests are on-screen. It can lead to
 	  difficult GPU testing if dislpay not available.
 	  Off-screen tests are more suitable for this.
 
-config BR2_PACKAGE_POWERVR_ROGUE_LIBS_DEBUG
+config BR2_PACKAGE_MCOM03_ROGUE_LIBS_DEBUG
 	bool "debug build"
 	help
 	  Useful for testing. If some tests fail this option
 	  should be enabled.
 
-config BR2_PACKAGE_POWERVR_ROGUE_LIBS_PDUMP
+config BR2_PACKAGE_MCOM03_ROGUE_LIBS_PDUMP
 	bool "pdump build"
 	help
 	  PDump is used for snapshoting and playing back the
 	  applications.
 
 config BR2_PACKAGE_PROVIDES_LIBEGL
-	default "powervr-rogue-libs"
+	default "mcom03-rogue-libs"
 
 config BR2_PACKAGE_PROVIDES_LIBGLES
-	default "powervr-rogue-libs"
+	default "mcom03-rogue-libs"
 
 config BR2_PACKAGE_PROVIDES_LIBOPENCL
-	default "powervr-rogue-libs"
+	default "mcom03-rogue-libs"
 
 endif

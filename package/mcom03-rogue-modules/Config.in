@@ -1,16 +1,16 @@
-config BR2_PACKAGE_POWERVR_ROGUE_KERN
-	bool "powervr-rogue-kern"
+config BR2_PACKAGE_MCOM03_ROGUE_MODULES
+	bool "mcom03-rogue-modules"
 	help
-	  Kernel space driver for PowerVR Rogue GPU.
+	  Kernel space driver for MCom-03 PowerVR Rogue GPU.
 
-if BR2_PACKAGE_POWERVR_ROGUE_KERN
-config BR2_PACKAGE_POWERVR_ROGUE_KERN_DEBUG
+if BR2_PACKAGE_MCOM03_ROGUE_MODULES
+config BR2_PACKAGE_MCOM03_ROGUE_MODULES_DEBUG
 	bool "debug build"
 	help
 	  Useful for testing. If some tests fail this option
 	  should be enabled.
 
-config BR2_PACKAGE_POWERVR_ROGUE_KERN_PDUMP
+config BR2_PACKAGE_MCOM03_ROGUE_MODULES_PDUMP
 	bool "pdump build"
 	help
 	  PDump is used for snapshoting and playing back the
