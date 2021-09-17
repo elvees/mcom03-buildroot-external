@@ -14,9 +14,9 @@ source "$BR2_EXTERNAL_MCOM03_PATH/package/linux-starter/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-libs/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mali-vpu-kern/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-demos/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-rogue-libs/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-rogue-modules/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl/Config.in"
-source "$BR2_EXTERNAL_MCOM03_PATH/package/powervr-rogue-libs/Config.in"
-source "$BR2_EXTERNAL_MCOM03_PATH/package/powervr-rogue-kern/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/rtl-test-stop/Config.in"
 
 endif
