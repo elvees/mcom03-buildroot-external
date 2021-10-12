@@ -1,0 +1,21 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.2
+    hooks:
+      - id: yamllint
+  - repo: https://opendev.org/openstack/bashate.git
+    rev: 2.0.0
+    hooks:
+      - id: bashate
+        args: [-v, --max-line-length, '100']
+  - repo: https://github.com/vlotorev/buildroot-utils
+    rev: 77221328b54d0a507e7a734229221d3e404445bc
+    hooks:
+      - id: lint-buildroot
+        exclude: package/rtl-test-stop/.*

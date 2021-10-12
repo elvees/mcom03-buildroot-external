@@ -44,14 +44,14 @@ MALI_VPU_KERN_PLATFORM = \
 	CONFIG_MALI_VPU_MCOM03=y
 
 # user space files
-UAPI_FILES= \
+MALI_VPU_KERN_UAPI_FILES= \
 	mve_base.h \
 	mve_protocol_def.h \
 	mve_protocol_kernel.h \
 	mve_rsrc_log.h mve_rsrc_log_ram.h \
 	mve_coresched_reg.h
 
-FIRMWARE_FILES= \
+MALI_VPU_KERN_FIRMWARE_FILES= \
 	h264dec.fwb h264enc.fwb \
 	hevcdec.fwb hevcenc.fwb \
 	jpegdec.fwb jpegenc.fwb \
@@ -68,7 +68,7 @@ MALI_VPU_KERN_MODULE_MAKE_OPTS = \
 	$(MALI_VPU_KERN_PLATFORM)
 
 define MALI_VPU_KERN_INSTALL_STAGING_CMDS
-	for i in $(UAPI_FILES); do \
+	for i in $(MALI_VPU_KERN_UAPI_FILES); do \
 	    $(INSTALL) -D -m 0644 \
 		`find $(@D) -name $$i` \
 		$(STAGING_DIR)/usr/include/linux/mve/$$i; \
@@ -76,7 +76,7 @@ define MALI_VPU_KERN_INSTALL_STAGING_CMDS
 endef
 
 define MALI_VPU_KERN_INSTALL_TARGET_CMDS
-	for i in $(FIRMWARE_FILES) ; do \
+	for i in $(MALI_VPU_KERN_FIRMWARE_FILES) ; do \
 	    $(INSTALL) -D -m 0644 \
 		`find $(@D) -name $$i` \
 		$(TARGET_DIR)/lib/firmware/$$i; \
