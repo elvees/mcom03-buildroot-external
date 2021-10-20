@@ -57,7 +57,6 @@ NVME_BUILD_DIR=$(pwd)
 prepare_tarballs () {
     # Variables used by list
     local CHECKSUM
-    local VERSION
     local URL
     local FILENAME
 
