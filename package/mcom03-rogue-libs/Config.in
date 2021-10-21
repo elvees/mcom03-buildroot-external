@@ -1,15 +1,17 @@
 config BR2_PACKAGE_MCOM03_ROGUE_LIBS
 	bool "mcom03-rogue-libs"
 	depends on BR2_TOOLCHAIN_HAS_THREADS
+	select BR2_PACKAGE_MESA3D
 	select BR2_PACKAGE_LIBDRM
 	select BR2_PACKAGE_MCOM03_ROGUE_MODULES
 	select BR2_PACKAGE_HOST_PYTHON
 	select BR2_PACKAGE_HOST_FLEX
 	select BR2_PACKAGE_HOST_BISON
-	select BR2_PACKAGE_HAS_LIBEGL
 	select BR2_PACKAGE_HAS_LIBGLES
 	select BR2_PACKAGE_HAS_LIBOPENCL
 	select BR2_PACKAGE_LIBXML2
+	select BR2_PACKAGE_MESA3D_DRI_DRIVER_PVR
+	select BR2_PACKAGE_MESA3D_OPENGL_EGL
 	help
 	  User space libraries for MCom-03 PowerVR Rogue GPU.
 
@@ -34,8 +36,9 @@ config BR2_PACKAGE_MCOM03_ROGUE_LIBS_PDUMP
 	  PDump is used for snapshoting and playing back the
 	  applications.
 
-config BR2_PACKAGE_PROVIDES_LIBEGL
-	default "mcom03-rogue-libs"
+endif
+
+if BR2_PACKAGE_MCOM03_ROGUE_LIBS
 
 config BR2_PACKAGE_PROVIDES_LIBGLES
 	default "mcom03-rogue-libs"

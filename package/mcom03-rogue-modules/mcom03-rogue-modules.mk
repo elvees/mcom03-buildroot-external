@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_ROGUE_MODULES_VERSION = elvees-1.10.y
+MCOM03_ROGUE_MODULES_VERSION = elvees-1.9.y
 MCOM03_ROGUE_MODULES_SITE = ssh://gerrit.elvees.com:29418/mcom03/rogue-modules
 MCOM03_ROGUE_MODULES_SITE_METHOD = git
 MCOM03_ROGUE_MODULES_LICENSE = Proprietary
@@ -23,7 +23,7 @@ MCOM03_ROGUE_MODULES_SETTINGS = \
 
 # setup window system.
 MCOM03_ROGUE_MODULES_SETTINGS += \
-	WINDOW_SYSTEM=nulldrmws
+	WINDOW_SYSTEM=lws-generic
 
 ifeq ($(BR2_PACKAGE_MCOM03_ROGUE_MODULES_DEBUG),y)
 MCOM03_ROGUE_MODULES_SETTINGS += \

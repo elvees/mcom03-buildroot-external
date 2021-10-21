@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_ROGUE_LIBS_VERSION = elvees-1.10.y
+MCOM03_ROGUE_LIBS_VERSION = elvees-1.9.y
 MCOM03_ROGUE_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/rogue-libs
 MCOM03_ROGUE_LIBS_SITE_METHOD = git
 MCOM03_ROGUE_LIBS_LICENSE = Proprietary
@@ -19,7 +19,7 @@ MCOM03_ROGUE_LIBS_DEPENDENCIES = host-bison \
 
 MCOM03_ROGUE_LIBS_INSTALL_STAGING = YES
 
-MCOM03_ROGUE_LIBS_PROVIDES = libopencl libegl libgles
+MCOM03_ROGUE_LIBS_PROVIDES = libgles libopencl
 
 # this package requires custom llvm
 MCOM03_ROGUE_LIBS_LLVM_DIR=$(@D)/llvm
@@ -39,11 +39,12 @@ MCOM03_ROGUE_LIBS_SETTINGS = \
 	DISCIMAGE=$(TARGET_DIR) \
 	MIPS_ELF_ROOT=/usr/corp/Projects/ipcam-vip1/toolchain/mips/mti/bare/2015.10 \
 	LLVM_BUILD_DIR=$(MCOM03_ROGUE_LIBS_LLVM_DIR) \
-	NNVM_BUILD_DIR=$(MCOM03_ROGUE_LIBS_NNVM_DIR)
+	NNVM_BUILD_DIR=$(MCOM03_ROGUE_LIBS_NNVM_DIR) \
+	SYSROOT=$(STAGING_DIR)
 
 # setup window system.
 MCOM03_ROGUE_LIBS_SETTINGS += \
-	WINDOW_SYSTEM=nulldrmws
+	WINDOW_SYSTEM=lws-generic
 
 # set paths suitable for target rootfs
 MCOM03_ROGUE_LIBS_SETTINGS += \
@@ -99,6 +100,8 @@ endef
 define MCOM03_ROGUE_LIBS_INSTALL_STAGING_CMDS
 	cp -dpfr $(@D)/include/khronos/* $(STAGING_DIR)/usr/include/
 	$(MAKE) -C $(@D) $(MCOM03_ROGUE_LIBS_SETTINGS) DISCIMAGE=$(STAGING_DIR) install
+	$(INSTALL) -D -m 0644 $(MCOM03_ROGUE_LIBS_PKGDIR)glesv2.pc \
+		$(STAGING_DIR)/usr/lib/pkgconfig/glesv2.pc
 endef
 
 define MCOM03_ROGUE_LIBS_INSTALL_TARGET_CMDS
