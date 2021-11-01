@@ -1,0 +1,10 @@
+config BR2_PACKAGE_GST_FELIX
+	bool "gst-felix"
+	depends on BR2_PACKAGE_GSTREAMER1
+	select BR2_PACKAGE_MCOM03_FELIX
+	select BR2_PACKAGE_SENSOR_PHY
+	help
+	  GStreamer plugin for Felix ISP
+
+comment "gst-felix depends on GStreamer"
+	depends on !BR2_PACKAGE_GSTREAMER1

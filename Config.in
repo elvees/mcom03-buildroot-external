@@ -11,6 +11,7 @@ comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
 if BR2_LINUX_KERNEL
 
 source "$BR2_EXTERNAL_MCOM03_PATH/package/acptest/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/gst-felix/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/linux-starter/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-felix/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-linux-utils/Config.in"
