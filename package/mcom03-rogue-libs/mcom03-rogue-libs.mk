@@ -9,6 +9,8 @@ MCOM03_ROGUE_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/rogue-libs
 MCOM03_ROGUE_LIBS_SITE_METHOD = git
 MCOM03_ROGUE_LIBS_LICENSE = Proprietary
 
+MCOM03_ROGUE_LIBS_INSTALL_IMAGES = YES
+
 MCOM03_ROGUE_LIBS_DEPENDENCIES = host-bison \
 	host-flex \
 	host-python \
@@ -24,6 +26,9 @@ MCOM03_ROGUE_LIBS_LLVM_DIR=$(@D)/llvm
 
 # this package requires custom nnvm
 MCOM03_ROGUE_LIBS_NNVM_DIR=$(@D)/nnvm
+
+# Path to the directory with binaries for tarball creation
+MCOM03_ROGUE_LIBS_TARGET_FILES_DIR=$(@D)/binaries
 
 # mandatory options
 MCOM03_ROGUE_LIBS_SETTINGS = \
@@ -98,6 +103,18 @@ endef
 
 define MCOM03_ROGUE_LIBS_INSTALL_TARGET_CMDS
 	$(MAKE) -C $(@D) $(MCOM03_ROGUE_LIBS_SETTINGS) install
+endef
+
+define MCOM03_ROGUE_LIBS_INSTALL_IMAGES_CMDS
+	# Create directory for binaries
+	rm -rf $(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR)
+	mkdir -p $(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR)
+
+	$(MAKE) -C $(@D) $(MCOM03_ROGUE_LIBS_SETTINGS) \
+		DISCIMAGE=$(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR) install
+
+	tar -C $(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR) -czf $(BINARIES_DIR)/mcom03-rogue-libs-$\
+		$(MCOM03_ROGUE_LIBS_VERSION)-$(shell date --iso).tar.gz .
 endef
 
 # Linux will load driver automatically
