@@ -1,7 +1,15 @@
 config BR2_PACKAGE_MALI_VPU_LIBS
 	bool "mali-vpu-libs"
+	select BR2_PACKAGE_HAS_LIBOPENMAX
 	select BR2_PACKAGE_JPEG
 	select BR2_PACKAGE_JPEG_TURBO
 	select BR2_PACKAGE_MALI_VPU_KERN
 	help
 	  Linux user space driver for Mali VPU engine.
+
+if BR2_PACKAGE_MALI_VPU_LIBS
+
+config BR2_PACKAGE_PROVIDES_LIBOPENMAX
+	default "mali-vpu-libs"
+
+endif
