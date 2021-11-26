@@ -1,3 +1,5 @@
+# MDB script to start ddrinit, TF-A and U-Boot on MCom-03 SoC. Script uses DDR0.
+
 set 0xbf000020 0x10
 loadbin buildroot/output/images/ddrinit-mcom03bub/ddrinit.bin 0xa0000000
 
