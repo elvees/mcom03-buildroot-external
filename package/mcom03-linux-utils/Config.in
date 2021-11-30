@@ -1,0 +1,5 @@
+config BR2_PACKAGE_MCOM03_LINUX_UTILS
+	bool "mcom03-linux-utils"
+	select BR2_PACKAGE_MPV
+	help
+	  Miscellaneous utilities for MCom-03

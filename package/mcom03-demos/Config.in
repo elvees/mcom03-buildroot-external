@@ -1,5 +1,0 @@
-config BR2_PACKAGE_MCOM03_DEMOS
-	bool "mcom03-demos"
-	select BR2_PACKAGE_MPV
-	help
-	  Demo scripts for MCom-03
