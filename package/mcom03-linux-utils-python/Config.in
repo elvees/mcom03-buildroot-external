@@ -1,0 +1,8 @@
+config BR2_PACKAGE_MCOM03_LINUX_UTILS_PYTHON
+	bool "mcom03-linux-utils-python"
+	depends on BR2_PACKAGE_PYTHON3
+	help
+	  Miscellaneous python utilities for MCom-03
+
+comment "mcom03-linux-utils-python depends on python3"
+	depends on !BR2_PACKAGE_PYTHON3
