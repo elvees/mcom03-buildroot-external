@@ -1,31 +1,32 @@
-menuconfig BR2_PACKAGE_ISP_DDK
-	bool "isp-ddk"
+menuconfig BR2_PACKAGE_MCOM03_FELIX
+	bool "mcom03-felix"
+	depends on BR2_LINUX_KERNEL
 	help
 	  Build kernel driver, libraries and test
 	  applications for PowerVR V2505 ISP.
 
-if BR2_PACKAGE_ISP_DDK
+if BR2_PACKAGE_MCOM03_FELIX
 
-config BR2_PACKAGE_ISP_DDK_ISPC_TEST
+config BR2_PACKAGE_MCOM03_FELIX_ISPC_TEST
 	bool "ispc_test"
 	default y
 	help
 	  Install ISPC test.
 
-config BR2_PACKAGE_ISP_DDK_ISPC_LOOP
+config BR2_PACKAGE_MCOM03_FELIX_ISPC_LOOP
 	bool "ispc_loop"
 	default y
 	select BR2_PACKAGE_LIBDRM
 	help
 	  Install ISPC loop test.
 
-config BR2_PACKAGE_ISP_DDK_DRIVER_TEST
+config BR2_PACKAGE_MCOM03_FELIX_DRIVER_TEST
 	bool "driver_test"
 	default y
 	help
 	  Install ISP driver test.
 
-config BR2_PACKAGE_ISP_DDK_SENSOR_PARAXDMA_LINUX
+config BR2_PACKAGE_MCOM03_FELIX_SENSOR_PARAXDMA_LINUX
 	bool "PARAXDMA support"
 	help
 	  Support PARAXDMA sensor on HAPS

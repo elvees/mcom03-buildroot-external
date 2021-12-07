@@ -9,9 +9,9 @@
               - fragments/ngfwcb.fragment
         - mcom03-priv-buildroot-build:
             files:
+              - .*-felix.*
               - .*-rogue-.*
               - .*-vpu-.*
-              - .*isp.*
               - configs/mcom03_defconfig
               - fragments/mcom03bub.fragment
               - fragments/private.fragment
