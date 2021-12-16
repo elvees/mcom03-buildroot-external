@@ -12,6 +12,9 @@
               - .*-vpu-.*
               - .*isp.*
               - configs/.*priv_defconfig
+        - mcom03-rockpi-buildroot-build:
+            files:
+              - configs/rockpi_defconfig
         - mcom03-trustphone-buildroot-build:
             files:
               - configs/trustphonepm_defconfig
