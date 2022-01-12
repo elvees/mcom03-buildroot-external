@@ -15,6 +15,7 @@ config BR2_PACKAGE_ISP_DDK_ISPC_TEST
 config BR2_PACKAGE_ISP_DDK_ISPC_LOOP
 	bool "ispc_loop"
 	default y
+	select BR2_PACKAGE_LIBDRM
 	help
 	  Install ISPC loop test.
 
