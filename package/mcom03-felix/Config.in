@@ -8,6 +8,9 @@ menuconfig BR2_PACKAGE_MCOM03_FELIX
 
 if BR2_PACKAGE_MCOM03_FELIX
 
+comment "mcom03-dmabuf-exporter is required for dmabuf support"
+	depends on !BR2_PACKAGE_MCOM03_DMABUF_EXPORTER
+
 config BR2_PACKAGE_MCOM03_FELIX_ISPC_TEST
 	bool "ispc_test"
 	default y
