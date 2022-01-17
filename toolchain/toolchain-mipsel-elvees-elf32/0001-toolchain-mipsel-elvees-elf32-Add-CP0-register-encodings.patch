@@ -1,0 +1,123 @@
+From 25ce43069e543ea4d40207e06239dce9b627fa41 Mon Sep 17 00:00:00 2001
+From: Timur Prokopenko <tprokopenko@elvees.com>
+Date: Tue, 29 Mar 2022 13:46:02 +0300
+Subject: [PATCH] Add CP0 register encodings
+
+Add MIPS32 Coprocessor 0 register encodings to make the code more
+human-readable.
+
+Change-Id: I3a14ca7230915fc840c1fe595f0418cd7b0e42ba
+---
+ gcc-mipsel-elf32_linux/mipsel-elf32/include/m32c0.h | 101 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 101 insertions(+)
+ create mode 100644 gcc-mipsel-elf32_linux/mipsel-elf32/include/m32c0.h
+
+diff --git a/gcc-mipsel-elf32_linux/mipsel-elf32/include/m32c0.h b/gcc-mipsel-elf32_linux/mipsel-elf32/include/m32c0.h
+new file mode 100644
+index 0000000..7f61c6a
+--- /dev/null
++++ b/gcc-mipsel-elf32_linux/mipsel-elf32/include/m32c0.h
+@@ -0,0 +1,101 @@
++/*
++ * MIPS32 Coprocessor 0 register encodings for C use.
++ * These encodings are implementation specific.
++ */
++#define C0_INDEX		0
++#define C0_INX			0
++#define C0_RANDOM		1
++#define C0_RAND			1
++#define C0_ENTRYLO0		2
++#define C0_TLBLO0		2
++#define C0_ENTRYLO1		3
++#define C0_TLBLO1		3
++#define C0_GLOBAL		0x103
++#define C0_CONTEXT		4
++#define C0_CTXT			4
++#define C0_CONTEXTCONF		0x104
++#define C0_USERLOCAL		0x204
++#define C0_XCONTEXTCONF		0x304
++#define C0_DEBUGCTXTID		0x404
++#define C0_PAGEMASK		5
++#define C0_PAGEGRAIN		0x105
++#define C0_SEGCTL0		0x205
++#define C0_SEGCTL1		0x305
++#define C0_SEGCTL2		0x405
++#define C0_PWBASE		0x505
++#define C0_PWFIELD		0x605
++#define C0_PWSIZE		0x705
++#define C0_WIRED		6
++#define C0_PWCTL		0x606
++#define C0_HWRENA		7
++#define C0_BADVADDR		8
++#define C0_VADDR		8
++#define C0_BADINSTR		0x108
++#define C0_BADINSTRP		0x208
++#define C0_COUNT		9
++#define C0_ENTRYHI		10
++#define C0_TLBHI		10
++#define C0_COMPARE		11
++#define C0_STATUS		12
++#define C0_SR			12
++#define C0_INTCTL		0x10C
++#define C0_SRSCTL		0x20C
++#define C0_SRSMAP		0x30C
++#define C0_CAUSE		13
++#define C0_CR			13
++#define C0_NESTEDEXC		0x50D
++#define C0_EPC 			14
++#define C0_NEPC			0x20E
++#define C0_PRID			15
++#define C0_EBASE		0x10F
++#define C0_CDMMBASE		0x20F
++#define C0_CMGCRBASE		0x30F
++#define C0_BEVVA		0x40F
++#define C0_CONFIG		16
++#define C0_CONFIG0		16
++#define C0_CONFIG1		0x110
++#define C0_CONFIG2		0x210
++#define C0_CONFIG3		0x310
++#define C0_CONFIG4		0x410
++#define C0_CONFIG5		0x510
++#define C0_LLADDR		17
++#define C0_MAAR			0x111
++#define C0_MAARI		0x111
++#define C0_WATCHLO		18
++#define C0_WATCHHI		19
++#define C0_XCONTEXT		20
++#define C0_DEBUG		23
++#define C0_TRACECONTROL		0x117
++#define C0_TRACECONTROL2	0x217
++#define C0_USERTRACEDATA1	0x317
++#define C0_TRACEIBPC		0x417
++#define C0_TRACEDBPC		0x517
++#define C0_DEBUG2		0x617
++#define C0_DEPC	  		24
++#define C0_TRACECONTROL3	0x218
++#define C0_USERTRACEDATA2	0x318
++#define C0_PERFCNT		25
++#define C0_ERRCTL		26
++#define C0_CACHEERR		27
++#define C0_TAGLO		28
++#define C0_ITAGLO		28
++#define C0_DTAGLO		0x21C
++#define C0_TAGLO2		0x41C
++#define C0_DATALO		0x11C
++#define C0_IDATALO		0x11C
++#define C0_DDATALO		0x31C
++#define C0_DATALO2		0x51C
++#define C0_TAGHI		29
++#define C0_ITAGHI		29
++#define C0_DTAGHI		0x21D
++#define C0_DATAHI		0x11D
++#define C0_IDATAHI		0x11D
++#define C0_DDATAHI		0x31D
++#define C0_ERRPC		30
++#define C0_DESAVE		31
++#define C0_KSCRATCH1		0x21F
++#define C0_KSCRATCH2		0x31F
++#define C0_KSCRATCH3		0x41F
++#define C0_KSCRATCH4		0x51F
++#define C0_KSCRATCH5		0x61F
++#define C0_KSCRATCH6		0x71F
+-- 
+2.29.2
