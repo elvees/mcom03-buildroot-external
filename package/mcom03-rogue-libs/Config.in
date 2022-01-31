@@ -9,6 +9,7 @@ config BR2_PACKAGE_MCOM03_ROGUE_LIBS
 	select BR2_PACKAGE_HAS_LIBEGL
 	select BR2_PACKAGE_HAS_LIBGLES
 	select BR2_PACKAGE_HAS_LIBOPENCL
+	select BR2_PACKAGE_LIBXML2
 	help
 	  User space libraries for MCom-03 PowerVR Rogue GPU.
 

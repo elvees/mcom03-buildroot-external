@@ -12,6 +12,7 @@ MCOM03_ROGUE_LIBS_LICENSE = Proprietary
 MCOM03_ROGUE_LIBS_DEPENDENCIES = host-bison \
 	host-flex \
 	host-python \
+	libxml2 \
 	libdrm
 
 MCOM03_ROGUE_LIBS_INSTALL_STAGING = YES
