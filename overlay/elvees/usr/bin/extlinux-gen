@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Be cautious with environment variables collision! Buildroot sets some of them.
+# To test script run it with OUT=/dev/stdout.
+
+[[ -v OUT ]] || OUT="$TARGET_DIR"/boot/extlinux/extlinux.conf
+
+[[ -v ROOT ]] || ROOT=/dev/mmcblk0p1
+[[ -v CONSOLE ]] || CONSOLE=ttyS0,115200n8
+
+if [[ ! -v CMDLINE ]]; then
+    CMDLINE="${CONSOLE:+console=$CONSOLE} earlycon ${ROOT:+root=$ROOT roottype=ext4 rw rootwait}"
+fi
+
+if [[ -v FDT ]]; then
+    FDTCMD=FDT
+else
+    FDTCMD=FDTDIR
+fi
+
+mkdir -p "${OUT%/*}"
+
+cat > "$OUT" <<EOF
+MENU TITLE Boot Menu
+TIMEOUT 20
+DEFAULT default
+
+LABEL default
+    MENU LABEL Default (/boot/Image)
+    LINUX /boot/Image
+    $FDTCMD /boot/elvees/$FDT
+    ${CMDLINE:+APPEND $CMDLINE}
+EOF
