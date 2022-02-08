@@ -3,6 +3,8 @@ comment "MCom-03 support needs AArch64 architecture"
 
 if BR2_aarch64
 
+source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl/Config.in"
+
 comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
 	depends on !BR2_LINUX_KERNEL
 
@@ -17,7 +19,6 @@ source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-linux-utils/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-linux-utils-python/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-rogue-libs/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-rogue-modules/Config.in"
-source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/rtl-test-stop/Config.in"
 
 endif
