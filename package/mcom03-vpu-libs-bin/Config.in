@@ -1,5 +1,5 @@
-config BR2_PACKAGE_MCOM03_MALI_VPU_LIBS
-	bool "mcom03-mali-vpu-libs"
+config BR2_PACKAGE_MCOM03_VPU_LIBS_BIN
+	bool "mcom03-vpu-libs-bin"
 	select BR2_PACKAGE_HAS_LIBOPENMAX
 	select BR2_PACKAGE_JPEG
 	select BR2_PACKAGE_JPEG_TURBO
@@ -7,9 +7,9 @@ config BR2_PACKAGE_MCOM03_MALI_VPU_LIBS
 	help
 	  Linux library binaries for Mali VPU engine.
 
-if BR2_PACKAGE_MCOM03_MALI_VPU_LIBS
+if BR2_PACKAGE_MCOM03_VPU_LIBS_BIN
 
 config BR2_PACKAGE_PROVIDES_LIBOPENMAX
-	default "mcom03-mali-vpu-libs"
+	default "mcom03-vpu-libs-bin"
 
 endif
