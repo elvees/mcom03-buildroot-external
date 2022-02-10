@@ -12,7 +12,7 @@ MCOM03_VPU_LIBS_INSTALL_IMAGES = YES
 
 MCOM03_VPU_LIBS_DEPENDENCIES = \
 	host-scons \
-	mali-vpu-kern \
+	mcom03-vpu-modules \
 	jpeg-turbo
 
 MCOM03_VPU_LIBS_SCONS_ENV = -j$(PARALLEL_JOBS)

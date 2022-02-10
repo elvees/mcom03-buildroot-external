@@ -3,7 +3,7 @@ config BR2_PACKAGE_MCOM03_VPU_LIBS
 	select BR2_PACKAGE_HAS_LIBOPENMAX
 	select BR2_PACKAGE_JPEG
 	select BR2_PACKAGE_JPEG_TURBO
-	select BR2_PACKAGE_MALI_VPU_KERN
+	select BR2_PACKAGE_MCOM03_VPU_MODULES
 	help
 	  Linux user space driver for Mali VPU engine.
 
