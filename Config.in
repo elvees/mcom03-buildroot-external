@@ -20,6 +20,7 @@ source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-vpu-modules/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-rogue-libs/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-rogue-modules/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/rtl-test-stop/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/sensor-phy/Config.in"
 
 endif
 endif
