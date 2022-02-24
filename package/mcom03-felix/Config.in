@@ -1,6 +1,7 @@
 menuconfig BR2_PACKAGE_MCOM03_FELIX
 	bool "mcom03-felix"
 	depends on BR2_LINUX_KERNEL
+	select BR2_PACKAGE_MCOM03_SENSOR_PHY
 	help
 	  Build kernel driver, libraries and test
 	  applications for PowerVR V2505 ISP.
@@ -25,6 +26,18 @@ config BR2_PACKAGE_MCOM03_FELIX_DRIVER_TEST
 	default y
 	help
 	  Install ISP driver test.
+
+config BR2_PACKAGE_MCOM03_FELIX_SENSOR_TEST
+	bool "sensor_test"
+	default y
+	help
+	  Install ISP sensor test.
+
+config BR2_PACKAGE_MCOM03_FELIX_I2C_TEST
+	bool "i2c_test"
+	default y
+	help
+	  Install ISP i2c test.
 
 config BR2_PACKAGE_MCOM03_FELIX_SENSOR_PARAXDMA_LINUX
 	bool "PARAXDMA support"
