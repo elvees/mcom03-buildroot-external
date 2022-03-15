@@ -16,13 +16,10 @@ set 0xa1080008 0x2
 set 0xa1000040 0x10
 
 # Setup reset address for CPU0 cores
-set 0xa100011C 0x0
+set 0xa100011C 0x80000000
 set 0xa1000124 0x80000000
 set 0xa100012C 0x80000000
 set 0xa1000134 0x80000000
-
-# Enable CPU0 core0
-set 0xa1000000 0x10
 
 sleep 3
 
@@ -80,6 +77,10 @@ sleep 1
 set 0xa1801040 0x0
 set 0xa1802040 0x0
 
+set RISC.PC 0xa0000000
+hbp set 0xa0000100
+run
+
 # Set page size to 16 MiB
 set RISC.PAGEMASK 0x1ffe000
 set RISC.WIRED 0
@@ -100,9 +101,7 @@ set 0xbfd08000 0  # Switch to TLB mapping
 loadbin buildroot/output/images/bl31.bin 0xc0000000
 loadbin buildroot/output/images/u-boot.bin 0xc0080000
 
-# Magic to start TF-A by DDRInit
-set 0xc0800000 0xdeadc0de
-# Clear magic to prevent false start TF-A after reboot
-set 0xc0800000 0
+# Enable CPU0 core0
+set 0xa1000000 0x10
 
 quit
