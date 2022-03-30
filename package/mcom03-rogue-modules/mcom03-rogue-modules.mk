@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_ROGUE_MODULES_VERSION = master
+MCOM03_ROGUE_MODULES_VERSION = elvees-1.10.y
 MCOM03_ROGUE_MODULES_SITE = ssh://gerrit.elvees.com:29418/mcom03/rogue-modules
 MCOM03_ROGUE_MODULES_SITE_METHOD = git
 MCOM03_ROGUE_MODULES_LICENSE = Proprietary

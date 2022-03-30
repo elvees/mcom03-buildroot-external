@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_ROGUE_LIBS_VERSION = master
+MCOM03_ROGUE_LIBS_VERSION = elvees-1.10.y
 MCOM03_ROGUE_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/rogue-libs
 MCOM03_ROGUE_LIBS_SITE_METHOD = git
 MCOM03_ROGUE_LIBS_LICENSE = Proprietary
