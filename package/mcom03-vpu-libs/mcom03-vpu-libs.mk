@@ -4,6 +4,8 @@
 #
 ################################################################################
 
+# Installation from source code
+ifeq ($(BR2_PACKAGE_MCOM03_VPU_LIBS_INSTALL_SRC),y)
 MCOM03_VPU_LIBS_VERSION = master
 MCOM03_VPU_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/vpu-libs
 MCOM03_VPU_LIBS_SITE_METHOD = git
@@ -62,11 +64,26 @@ endif
 
 MCOM03_VPU_LIBS_TARBALL_VERSION = $(shell git -C $(MCOM03_VPU_LIBS_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
 
-# Create tarball so that mcom03-mali-vpu-libs package can use it
 define MCOM03_VPU_LIBS_INSTALL_IMAGES_CMDS
 	tar -C $(TARGET_DIR) -czf \
-		$(BINARIES_DIR)/mcom03-vpu-libs-bin-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar.gz \
+		$(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar.gz \
 		$(MCOM03_VPU_LIBS_TARGET_FILES)
 endef
+
+define MCOM03_VPU_LIBS_INSTALL_STAGING_CMDS
+	$(INSTALL) -D -m 0644 $(@D)/omx_components/gst/gstomxmveext.h $(STAGING_DIR)/usr/include/linux/mve
+endef
+
+# Installation from tarball with binaries
+else
+MCOM03_VPU_LIBS_VERSION = 3afaf1b-20220329
+MCOM03_VPU_LIBS_SITE = http://dist.elvees.com/mcom03/packages/mcom03-vpu-libs
+MCOM03_VPU_LIBS_STRIP_COMPONENTS = 0
+
+define MCOM03_VPU_LIBS_INSTALL_TARGET_CMDS
+	cp -dpfr $(@D)/* $(TARGET_DIR)
+endef
+
+endif
 
 $(eval $(generic-package))

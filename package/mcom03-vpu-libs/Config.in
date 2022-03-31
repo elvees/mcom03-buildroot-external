@@ -9,6 +9,9 @@ config BR2_PACKAGE_MCOM03_VPU_LIBS
 
 if BR2_PACKAGE_MCOM03_VPU_LIBS
 
+config BR2_PACKAGE_MCOM03_VPU_LIBS_INSTALL_SRC
+	bool "Build from source code"
+
 config BR2_PACKAGE_PROVIDES_LIBOPENMAX
 	default "mcom03-vpu-libs"
 
