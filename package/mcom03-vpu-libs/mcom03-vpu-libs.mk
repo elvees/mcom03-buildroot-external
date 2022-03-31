@@ -11,6 +11,7 @@ MCOM03_VPU_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/vpu-libs
 MCOM03_VPU_LIBS_SITE_METHOD = git
 MCOM03_VPU_LIBS_LICENSE = Proprietary
 MCOM03_VPU_LIBS_INSTALL_IMAGES = YES
+MCOM03_VPU_LIBS_INSTALL_STAGING = YES
 
 MCOM03_VPU_LIBS_DEPENDENCIES = \
 	host-scons \
@@ -71,7 +72,8 @@ define MCOM03_VPU_LIBS_INSTALL_IMAGES_CMDS
 endef
 
 define MCOM03_VPU_LIBS_INSTALL_STAGING_CMDS
-	$(INSTALL) -D -m 0644 $(@D)/omx_components/gst/gstomxmveext.h $(STAGING_DIR)/usr/include/linux/mve
+	$(INSTALL) -d $(STAGING_DIR)/usr/include/IL
+	$(INSTALL) -m 0644 -t $(STAGING_DIR)/usr/include/IL $(@D)/khronos/original/OMXIL/1.1.2/*
 endef
 
 # Installation from tarball with binaries
