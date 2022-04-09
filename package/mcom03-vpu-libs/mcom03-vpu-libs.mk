@@ -66,9 +66,13 @@ endif
 MCOM03_VPU_LIBS_TARBALL_VERSION = $(shell git -C $(MCOM03_VPU_LIBS_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
 
 define MCOM03_VPU_LIBS_INSTALL_IMAGES_CMDS
-	tar -C $(TARGET_DIR) -czf \
-		$(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar.gz \
-		$(MCOM03_VPU_LIBS_TARGET_FILES)
+	tar -C $(TARGET_DIR) -cf \
+		$(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar \
+		$(MCOM03_VPU_LIBS_TARGET_FILES) --transform 's,^,target/,'
+	tar -C $(STAGING_DIR) -rf \
+		$(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar \
+		usr/include/IL --transform 's,^,staging/,'
+	gzip -f $(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar
 endef
 
 define MCOM03_VPU_LIBS_INSTALL_STAGING_CMDS
@@ -78,12 +82,13 @@ endef
 
 # Installation from tarball with binaries
 else
-MCOM03_VPU_LIBS_VERSION = 3afaf1b-20220329
+MCOM03_VPU_LIBS_VERSION = f366581-20220409
 MCOM03_VPU_LIBS_SITE = http://dist.elvees.com/mcom03/packages/mcom03-vpu-libs
 MCOM03_VPU_LIBS_STRIP_COMPONENTS = 0
 
 define MCOM03_VPU_LIBS_INSTALL_TARGET_CMDS
-	cp -dpfr $(@D)/* $(TARGET_DIR)
+	cp -dpfr $(@D)/target/* $(TARGET_DIR)
+	cp -dpfr $(@D)/staging/* $(STAGING_DIR)
 endef
 
 endif
