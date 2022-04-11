@@ -23,4 +23,7 @@ source "$BR2_EXTERNAL_MCOM03_PATH/package/rtl-test-stop/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/sensor-phy/Config.in"
 
 endif
+
+source "$BR2_EXTERNAL_MCOM03_PATH/toolchain/toolchain-mipsel-elvees-elf32/Config.in"
+
 endif
