@@ -3,23 +3,7 @@
 set 0xbf000020 0x10
 loadbin buildroot/output/images/ddrinit-mcom03bub/ddrinit.bin 0xa0000000
 
-# Enable CPU0 and clocks for CPU0 and HSPERIPH
-set 0xbf000000 0x10
 set 0xbf001008 0x115
-
-# Enable all channels of CPU0 UCG
-set 0xa1080000 0x2
-set 0xa1080004 0x2
-set 0xa1080008 0x2
-
-# Enable a53sys_ppolicy
-set 0xa1000040 0x10
-
-# Setup reset address for CPU0 cores
-set 0xa100011C 0x80000000
-set 0xa1000124 0x80000000
-set 0xa100012C 0x80000000
-set 0xa1000134 0x80000000
 
 sleep 3
 
@@ -100,6 +84,40 @@ set 0xbfd08000 0  # Switch to TLB mapping
 # Load TF-A and U-Boot to DDR0
 loadbin buildroot/output/images/bl31.bin 0xc0000000
 loadbin buildroot/output/images/u-boot.bin 0xc0080000
+
+# Enable CPU_SUBS
+set 0xbf000000 0x10
+
+# Enable core clk and dbus clk (sys clk is enabled by default)
+set 0xa1080004 0x2
+set 0xa1080008 0x2
+
+# All CPU clocks to bypass mode
+set 0xa1080040 0x7
+
+# Setup CPU PLL to 1161 MHz, assuming that XTI = 27 MHz
+# Should be the same as set in SBL
+set 0xa1000050 0x154601
+
+# Set CPU clock dividers
+set 0xa1080000 0x1002
+set 0xa1080004 0x402
+set 0xa1080008 0x802
+
+# Set CPU_UCG_SYNC
+set 0xa1080044 0x7
+
+# Disable bypass mode for CPU clocks
+set 0xa1080040 0x0
+
+# Enable a53sys_ppolicy
+set 0xa1000040 0x10
+
+# Setup reset address for CPU0 cores
+set 0xa100011C 0x80000000
+set 0xa1000124 0x80000000
+set 0xa100012C 0x80000000
+set 0xa1000134 0x80000000
 
 # Enable CPU0 core0
 set 0xa1000000 0x10
