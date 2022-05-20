@@ -39,6 +39,30 @@ config BR2_PACKAGE_MCOM03_FELIX_I2C_TEST
 	help
 	  Install ISP i2c test.
 
+config BR2_PACKAGE_MCOM03_FELIX_SENSOR_OV2718
+	bool "OV2718 support"
+	default y
+	help
+	  Support OV2718 sensor
+
+config BR2_PACKAGE_MCOM03_FELIX_SENSOR_OV4689
+	bool "OV4689 support"
+	default y
+	help
+	  Support OV4689 sensor
+
+config BR2_PACKAGE_MCOM03_FELIX_SENSOR_OV5647
+	bool "OV5647 support"
+	default y
+	help
+	  Support OV5647 sensor
+
+config BR2_PACKAGE_MCOM03_FELIX_SENSOR_OV10823
+	bool "OV10823 support"
+	default y
+	help
+	  Support OV10823 sensor
+
 config BR2_PACKAGE_MCOM03_FELIX_SENSOR_PARAXDMA_LINUX
 	bool "PARAXDMA support"
 	help
