@@ -1,0 +1,17 @@
+config BR2_PACKAGE_MCOM03_DMABUF_EXPORTER
+	bool "mcom03-dmabuf-exporter"
+	depends on BR2_LINUX_KERNEL
+	help
+	  Exporter of DMA buffers for MCom-03
+
+if BR2_PACKAGE_MCOM03_DMABUF_EXPORTER
+
+config BR2_PACKAGE_MCOM03_DMABUF_EXPORTER_AUTOLOAD
+	bool "Autoload dmabuf_exporter.ko"
+	default y
+	depends on BR2_PACKAGE_SYSTEMD
+
+comment "mcom03-dmabuf-exporter needs systemd for automatic loading"
+	depends on !BR2_PACKAGE_SYSTEMD
+
+endif
