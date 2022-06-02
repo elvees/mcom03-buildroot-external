@@ -1,4 +1,4 @@
-menuconfig BR2_PACKAGE_MCOM03_FELIX
+config BR2_PACKAGE_MCOM03_FELIX
 	bool "mcom03-felix"
 	depends on BR2_LINUX_KERNEL
 	select BR2_PACKAGE_LIBGPIOD
@@ -8,6 +8,11 @@ menuconfig BR2_PACKAGE_MCOM03_FELIX
 	  applications for PowerVR V2505 ISP.
 
 if BR2_PACKAGE_MCOM03_FELIX
+
+menuconfig BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC
+	bool "Build from source code"
+
+if BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC
 
 comment "mcom03-dmabuf-exporter is required for dmabuf support"
 	depends on !BR2_PACKAGE_MCOM03_DMABUF_EXPORTER
@@ -71,4 +76,6 @@ config BR2_PACKAGE_MCOM03_FELIX_SENSOR_PARAXDMA_LINUX
 	bool "PARAXDMA support"
 	help
 	  Support PARAXDMA sensor on HAPS
+endif
+
 endif

@@ -4,11 +4,13 @@
 #
 ################################################################################
 
+MCOM03_FELIX_DEPENDENCIES = linux sensor-phy
+
+# Installation from source code
+ifeq ($(BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC),y)
 MCOM03_FELIX_VERSION = master
 MCOM03_FELIX_SITE_METHOD = git
-
 MCOM03_FELIX_SITE = ssh://gerrit.elvees.com:29418/mcom03/felix
-MCOM03_FELIX_DEPENDENCIES = linux sensor-phy
 MCOM03_FELIX_SUBDIR = DDKSource
 
 MCOM03_FELIX_INSTALL_LOCAL = $(@D)/install
@@ -154,3 +156,17 @@ define MCOM03_FELIX_INSTALL_IMAGES_CMDS
 endef
 
 $(eval $(cmake-package))
+
+# Installation from tarball with binaries
+else
+MCOM03_FELIX_VERSION = latest
+MCOM03_FELIX_SITE = http://dist.elvees.com/mcom03/packages/mcom03-felix
+MCOM03_FELIX_STRIP_COMPONENTS = 0
+
+define MCOM03_FELIX_INSTALL_TARGET_CMDS
+	rsync -aK $(@D)/* $(TARGET_DIR)
+endef
+
+$(eval $(generic-package))
+
+endif
