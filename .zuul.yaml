@@ -19,6 +19,13 @@
             files:
               - configs/mcom03_defconfig
               - fragments/rockpi.fragment
+        - mcom03-rockpi-weston-buildroot-build:
+            files:
+              - .*-rogue-.*
+              - configs/mcom03_defconfig
+              - fragments/rockpi.fragment
+              - fragments/private.fragment
+              - fragments/weston.fragment
         - mcom03-trustphone-buildroot-build:
             files:
               - configs/mcom03_defconfig
@@ -34,6 +41,7 @@
         - mcom03-priv-buildroot-build
         - mcom03-ngfwcb-buildroot-build
         - mcom03-rockpi-buildroot-build
+        - mcom03-rockpi-weston-buildroot-build
         - mcom03-trustphone-buildroot-build
         - mcom03-buildroot-build-centos8stream
         - mcom03-buildroot-build-ubuntufocal
