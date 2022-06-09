@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32_SOURCE = MCom03-console-SDK.linux64.R2022-05-17.tar.gz
-HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32_SITE = http://dwarf.elvees.com:8080/view/SDK/job/MCOM03_SDK/job/master/33/artifact
+HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32_SOURCE = MCom03-console-SDK.linux64.2022-06-09.tar.gz
+HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32_SITE = http://dwarf.elvees.com:8080/view/SDK/job/MCOM03_SDK/job/master/34/artifact
 HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32_INSTALL_DIR = $(HOST_DIR)/opt/toolchain-mipsel-elvees-elf32
 HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32_CMAKE_FILE = $(HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32_INSTALL_DIR)/share/cmake/toolchain.cmake
 
