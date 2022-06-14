@@ -5,17 +5,15 @@ loadbin buildroot/output/images/ddrinit-mcom03bub/ddrinit.bin 0xa0000000
 
 set 0xbf001008 0x115
 
-sleep 3
-
 # All commutator clocks to bypass mode
 set 0xa1801040 0xff
 set 0xa1802040 0x1ff
 
-sleep 1
-
 # Setup commutator PLL to 1188 MHz, assuming that XTI = 27 MHz
 # Should be the same as set in SBL
 set 0xa1800000 0x15c601
+
+# Don't wait for PLL lock since execution time for mdb command is quite enought.
 
 # Set dividers for commutator UCG0 and UCG1 (clocks are disabled)
 set 0xa1801000 0x1800  # 198 MHz
@@ -35,8 +33,6 @@ set 0xa1802018 0x3000  # 99 MHz
 set 0xa180201C 0x2000  # 148.5 MHz
 set 0xa1802020 0x1800  # 198 MHz
 
-sleep 1
-
 # Enable UCG0 and UCG1 clocks
 set 0xa1801000 0x1802  # DDR_DP
 set 0xa1801004 0x2002  # DDR_VPU
@@ -54,8 +50,6 @@ set 0xa1802014 0x1002  # DDR_SDR_PCIE
 set 0xa1802018 0x3002  # DDR_LSPERIPH1
 set 0xa180201C 0x2002  # DDR_SERVICE
 set 0xa1802020 0x1802  # DDR_HSPERIPH
-
-sleep 1
 
 # Disable bypass for commutator clocks
 set 0xa1801040 0x0
