@@ -59,25 +59,11 @@ set RISC.PC 0xa0000000
 hbp set 0xa0000100
 run
 
-# Set page size to 16 MiB
-set RISC.PAGEMASK 0x1ffe000
-set RISC.WIRED 0
-
-# Map 16 MiB at 0xC0000000 (virt) to 0x80000000 (phys)
-set RISC.INDEX 0
-set RISC.ENTRYHI 0xc0000000
-set RISC.ENTRYLO0 0x2000017
-set RISC.ENTRYLO1 0x2000017
-
-set 0xbfa00000 0x42000002  # tlbwi instruction
-set RISC.PC 0xbfa00000
-step
-
-set 0xbfd08000 0  # Switch to TLB mapping
-
-# Load TF-A and U-Boot to DDR0
+# Load TF-A to 0x8_8030_0000 which is mapped to 0xc0000000
 loadbin buildroot/output/images/bl31.bin 0xc0000000
-loadbin buildroot/output/images/u-boot.bin 0xc0080000
+
+# Load U-Boot to 0x8_8248_0000 which is mapped to 0xc2080000
+loadbin buildroot/output/images/u-boot.bin 0xc2080000
 
 # Enable CPU_SUBS
 set 0xbf000000 0x10
@@ -108,10 +94,14 @@ set 0xa1080040 0x0
 set 0xa1000040 0x10
 
 # Setup reset address for CPU0 cores
-set 0xa100011C 0x80000000
-set 0xa1000124 0x80000000
-set 0xa100012C 0x80000000
-set 0xa1000134 0x80000000
+set 0xa1000118 0x8
+set 0xa100011C 0x80300000
+set 0xa1000120 0x8
+set 0xa1000124 0x80300000
+set 0xa1000128 0x8
+set 0xa100012C 0x80300000
+set 0xa1000130 0x8
+set 0xa1000134 0x80300000
 
 # Enable CPU0 core0
 set 0xa1000000 0x10
