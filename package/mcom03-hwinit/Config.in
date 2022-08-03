@@ -1,0 +1,22 @@
+config BR2_PACKAGE_MCOM03_HWINIT
+	bool "mcom03-hwinit"
+	help
+	  The package is a part of trusted second
+	  bootloader. It is responsible to setup
+	  hardware during boot stages.
+
+if BR2_PACKAGE_MCOM03_HWINIT
+
+config BR2_PACKAGE_MCOM03_HWINIT_TOOLCHAIN
+	string "Toolchain"
+	help
+	  Path to the toolchain file to cross-compile
+	  hwinit with.
+
+config BR2_PACKAGE_MCOM03_HWINIT_ADDITIONAL_VARIABLES
+	string "Additional hwinit build variables"
+	help
+	  Additional parameters for the hwinit build
+	  E.G. 'WDT_ENABLE=y DEBUG=y'
+
+endif
