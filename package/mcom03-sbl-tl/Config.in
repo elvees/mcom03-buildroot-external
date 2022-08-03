@@ -1,0 +1,21 @@
+config BR2_PACKAGE_MCOM03_SBL_TL
+	bool "mcom03-sbl-tl"
+	help
+	  The Trusted Secondary Bootloader is responsible for
+	  verifying and loading secure boot images (sbimg).
+
+if BR2_PACKAGE_MCOM03_SBL_TL
+
+config BR2_PACKAGE_MCOM03_SBL_TL_TOOLCHAIN
+	string "Toolchain"
+	help
+	  Path to the toolchain file to cross-compile
+	  sbl-tl with.
+
+config BR2_PACKAGE_MCOM03_SBL_TL_ADDITIONAL_VARIABLES
+	string "Additional sbl-tl build variables"
+	help
+	  Additional parameters for the sbl-tl build
+	  E.G. 'WDT_ENABLE=y DEBUG=y'
+
+endif
