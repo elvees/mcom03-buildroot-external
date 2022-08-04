@@ -6,6 +6,7 @@ if BR2_aarch64
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-hwinit/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl-tl/Config.in"
+source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-tl-common/Config.in"
 
 comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
 	depends on !BR2_LINUX_KERNEL

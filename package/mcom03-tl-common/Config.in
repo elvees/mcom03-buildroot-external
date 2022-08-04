@@ -1,0 +1,21 @@
+config BR2_PACKAGE_MCOM03_TL_COMMON
+	bool "mcom03-tl-common"
+	help
+	  The package setups and provides the operation
+	  of the service subsystem and trusted services.
+
+if BR2_PACKAGE_MCOM03_TL_COMMON
+
+config BR2_PACKAGE_MCOM03_TL_COMMON_TOOLCHAIN
+	string "Toolchain"
+	help
+	  Path to the toolchain file to cross-compile
+	  tl-common with.
+
+config BR2_PACKAGE_MCOM03_TL_COMMON_ADDITIONAL_VARIABLES
+	string "Additional tl-common build variables"
+	help
+	  Additional parameters for the tl-common build
+	  E.G. 'WDT_ENABLE=y DEBUG=y'
+
+endif
