@@ -1,0 +1,76 @@
+config BR2_PACKAGE_MCOM03_TL_SBIMG
+	bool "mcom03-tl-sbimg"
+	depends on BR2_PACKAGE_DDRINIT
+	depends on BR2_PACKAGE_MCOM03_HWINIT
+	depends on BR2_PACKAGE_MCOM03_SBL_TL
+	depends on BR2_PACKAGE_MCOM03_TL_COMMON
+	depends on BR2_TARGET_ARM_TRUSTED_FIRMWARE
+	depends on BR2_TARGET_UBOOT
+	help
+	  Make secure boot image (SBIMG).
+
+comment "MCom-03 TL-SBIMG needs ddrinit, mcom03_hwinit, mcom03-sbl-tl, mcom03-tl-common, arm-trusted-firmware, uboot"
+	depends on !BR2_PACKAGE_DDRINIT || \
+		!BR2_PACKAGE_MCOM03_HWINIT || \
+		!BR2_PACKAGE_MCOM03_SBL_TL || \
+		!BR2_PACKAGE_MCOM03_TL_COMMON || \
+		!BR2_TARGET_ARM_TRUSTED_FIRMWARE || \
+		!BR2_TARGET_UBOOT
+
+if BR2_PACKAGE_MCOM03_TL_SBIMG
+
+choice
+	prompt "Select the type of security of SBIMG"
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
+	bool "enc+sign"
+	help
+	  Make SBIMG with signed and encrypted binary
+	  componets.
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN
+	bool "sign"
+	help
+	  Make SBIMG with signed binary componets.
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
+	bool "none"
+	help
+	  Make SBIMG with unsigned and unencrypted
+	  binary componets.
+
+endchoice
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE
+	string
+	default "enc"	if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
+	default "sign"  if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN
+	default "none"  if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
+
+if !BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_CERT_URL
+	string "URL to certificates"
+
+if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_ENC_DSN
+	string "DSN"
+	help
+	  Device Serial Number (32 бита) <0x...>
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_ENC_DUK
+	string "DUK"
+	help
+	  Device Unique Key (128 бит) <0x...>
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_ENC_KEY
+	string "Encryption Key"
+	help
+	  Encryption Key (128 бит) <0x...>
+
+endif
+
+endif
+
+endif
