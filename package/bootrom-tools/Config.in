@@ -1,0 +1,5 @@
+config BR2_PACKAGE_HOST_BOOTROM_TOOLS
+	bool "bootrom-tools"
+	help
+	  The tool to create and analyze binary images
+	  in SBIMG format.
