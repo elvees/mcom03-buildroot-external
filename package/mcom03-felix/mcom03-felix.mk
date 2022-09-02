@@ -121,10 +121,11 @@ else
 MCOM03_FELIX_CONF_OPTS += -DSENSOR_OV10823=0
 endif
 
+MCOM03_FELIX_TARGET_FILES += $(TARGET_DIR)/etc/felix
 define MCOM03_FELIX_SENSORCFG_INSTALL
+	set -e; \
+	mkdir -p $(TARGET_DIR)/etc/felix; \
 	if [ -d $(MCOM03_FELIX_INSTALL_LOCAL)/sensorcfg ]; then \
-		set -e; \
-		mkdir -p $(TARGET_DIR)/etc/felix; \
 		cp -rf $(MCOM03_FELIX_INSTALL_LOCAL)/sensorcfg/* $(TARGET_DIR)/etc/felix; \
 	fi
 endef
