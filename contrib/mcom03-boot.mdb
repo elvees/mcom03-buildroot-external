@@ -59,11 +59,11 @@ set RISC.PC 0xa0000000
 hbp set 0xa0000100
 run
 
-# Load TF-A to 0x8_8030_0000 which is mapped to 0xc0000000
-loadbin buildroot/output/images/bl31.bin 0xc0000000
+# Load TF-A to 0x8_8030_0000 which is mapped to 0xc0300000
+loadbin buildroot/output/images/bl31.bin 0xc0300000
 
-# Load U-Boot to 0x8_8248_0000 which is mapped to 0xc2080000
-loadbin buildroot/output/images/u-boot.bin 0xc2080000
+# Load U-Boot to 0x8_9048_0000 which is mapped to 0xc0080000
+loadbin buildroot/output/images/u-boot.bin 0xc0080000
 
 # Enable CPU_SUBS
 set 0xbf000000 0x10
