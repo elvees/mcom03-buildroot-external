@@ -19,6 +19,13 @@ comment "MCom-03 TL-SBIMG needs ddrinit, mcom03_hwinit, mcom03-sbl-tl, mcom03-tl
 
 if BR2_PACKAGE_MCOM03_TL_SBIMG
 
+config BR2_PACKAGE_MCOM03_TL_SBIMG_REPO_VERSION
+	string "Repository version"
+	default master
+	help
+	  Revision to use in the typical format used by Git
+	  E.G. a sha id, a tag, ..
+
 choice
 	prompt "Select the type of security of SBIMG"
 

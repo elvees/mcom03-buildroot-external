@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_TL_SBIMG_VERSION = master
+MCOM03_TL_SBIMG_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_SBIMG_REPO_VERSION))
 MCOM03_TL_SBIMG_SITE = git@git.elvees.com:TrustLab-Engineers-Internal/sbimg_cfg.git
 MCOM03_TL_SBIMG_SITE_METHOD = git
 
