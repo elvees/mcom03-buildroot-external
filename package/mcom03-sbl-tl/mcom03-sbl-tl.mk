@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_SBL_TL_VERSION = archiveVideoCam_Ph5
+MCOM03_SBL_TL_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_SBL_TL_REPO_VERSION))
 MCOM03_SBL_TL_SITE = git@git.elvees.com:TrustLab-Engineers-Internal/sbl-tl.git
 MCOM03_SBL_TL_SITE_METHOD = git
 MCOM03_SBL_TL_GIT_SUBMODULES = YES
