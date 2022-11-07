@@ -19,4 +19,11 @@ config BR2_PACKAGE_MCOM03_HWINIT_ADDITIONAL_VARIABLES
 	  Additional parameters for the hwinit build
 	  E.G. 'WDT_ENABLE=y DEBUG=y'
 
+config BR2_PACKAGE_MCOM03_HWINIT_REPO_VERSION
+	string "Repository version"
+	default archiveVideoCam_Ph5
+	help
+	  Revision to use in the typical format used by Git
+	  E.G. a sha id, a tag, ..
+
 endif
