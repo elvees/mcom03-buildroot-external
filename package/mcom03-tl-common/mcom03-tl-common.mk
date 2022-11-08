@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_TL_COMMON_VERSION = archiveVideoCam_Ph5
+MCOM03_TL_COMMON_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_COMMON_REPO_VERSION))
 MCOM03_TL_COMMON_SITE = git@git.elvees.com:TrustLab-Engineers-Internal/tl-common.git
 MCOM03_TL_COMMON_SITE_METHOD = git
 MCOM03_TL_COMMON_GIT_SUBMODULES = YES
