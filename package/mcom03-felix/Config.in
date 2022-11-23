@@ -48,6 +48,12 @@ config BR2_PACKAGE_MCOM03_FELIX_I2C_TEST
 	help
 	  Install ISP i2c test.
 
+config BR2_PACKAGE_MCOM03_FELIX_FOCUS_TEST
+	bool "focus_test"
+	default y
+	help
+	  Install ISP focus test.
+
 config BR2_PACKAGE_MCOM03_FELIX_SENSOR_OV2718
 	bool "OV2718 support"
 	default y
