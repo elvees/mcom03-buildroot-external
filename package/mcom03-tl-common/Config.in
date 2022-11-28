@@ -6,6 +6,9 @@ config BR2_PACKAGE_MCOM03_TL_COMMON
 
 if BR2_PACKAGE_MCOM03_TL_COMMON
 
+config BR2_PACKAGE_MCOM03_TL_COMMON_INSTALL_SRC
+	bool "Build from source code"
+
 config BR2_PACKAGE_MCOM03_TL_COMMON_TOOLCHAIN
 	string "Toolchain"
 	help
