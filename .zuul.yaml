@@ -9,6 +9,9 @@
         - mcom03-elvsmarccb-buildroot-build:
             files:
               - fragments/elvsmarccb.fragment
+        - mcom03-elvq7cb-buildroot-build:
+            files:
+              - fragments/elvq7cb.fragment
         - mcom03-ngfwcb-buildroot-build:
             files:
               - fragments/ngfwcb.fragment
@@ -41,6 +44,7 @@
       jobs:
         - ecam03-buildroot-build
         - mcom03-priv-buildroot-build
+        - mcom03-elvq7cb-buildroot-build
         - mcom03-elvsmarccb-buildroot-build
         - mcom03-ngfwcb-buildroot-build
         - mcom03-rockpi-buildroot-build
