@@ -5,7 +5,7 @@
 ################################################################################
 
 MCOM03_HWINIT_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_HWINIT_REPO_VERSION))
-MCOM03_HWINIT_SITE = git@git.elvees.com:TrustLab-Engineers-Internal/hwinit.git
+MCOM03_HWINIT_SITE = ssh://git@git.elvees.com/TrustLab-Engineers-Internal/hwinit.git
 MCOM03_HWINIT_SITE_METHOD = git
 MCOM03_HWINIT_GIT_SUBMODULES = YES
 MCOM03_HWINIT_DEPENDENCIES = host-toolchain-mipsel-elvees-elf32
