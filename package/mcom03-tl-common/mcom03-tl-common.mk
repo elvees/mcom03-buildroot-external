@@ -14,7 +14,7 @@ MCOM03_TL_COMMON_DEPENDENCIES = host-toolchain-mipsel-elvees-elf32
 # Installation from source code
 ifeq ($(BR2_PACKAGE_MCOM03_TL_COMMON_INSTALL_SRC),y)
 MCOM03_TL_COMMON_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_COMMON_REPO_VERSION))
-MCOM03_TL_COMMON_SITE = git@git.elvees.com:TrustLab-Engineers-Internal/tl-common.git
+MCOM03_TL_COMMON_SITE = ssh://git@git.elvees.com/TrustLab-Engineers-Internal/tl-common.git
 MCOM03_TL_COMMON_SITE_METHOD = git
 MCOM03_TL_COMMON_GIT_SUBMODULES = YES
 
