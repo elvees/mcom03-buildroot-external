@@ -1,0 +1,6 @@
+config BR2_PACKAGE_MCOM03_BAREMETAL_TOOLS
+	bool "mcom03-baremetal-tools"
+	depends on BR2_HOST_TOOLCHAIN_MIPSEL_ELVEES_ELF32
+	help
+	  Baremetal samples and tools for ARM and RISC CPU on
+	  MCom-03 SoC.
