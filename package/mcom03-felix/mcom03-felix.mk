@@ -6,6 +6,8 @@
 
 MCOM03_FELIX_DEPENDENCIES = linux sensor-phy
 
+MCOM03_FELIX_LINUX_ID = $(shell id=$(LINUX_VERSION_PROBED);id=$${id%.*};id=$${id/./};echo $$id)
+
 # Installation from source code
 ifeq ($(BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC),y)
 MCOM03_FELIX_VERSION = master
@@ -167,10 +169,11 @@ else
 MCOM03_FELIX_GIT_DIR = $(MCOM03_FELIX_DL_DIR)/git
 endif
 MCOM03_FELIX_BIN_VERSION = $(shell git -C $(MCOM03_FELIX_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
+
 # Create tarball with binaries
 define MCOM03_FELIX_INSTALL_IMAGES_CMDS
 	tar -C $(TARGET_DIR) -czf \
-		$(BINARIES_DIR)/mcom03-felix-$(MCOM03_FELIX_BIN_VERSION).tar.gz \
+		$(BINARIES_DIR)/mcom03-felix-$(MCOM03_FELIX_LINUX_ID)-$(MCOM03_FELIX_BIN_VERSION).tar.gz \
 		$(MCOM03_FELIX_TARGET_FILES:$(TARGET_DIR)/%=%)
 endef
 
@@ -178,7 +181,7 @@ $(eval $(cmake-package))
 
 # Installation from tarball with binaries
 else
-MCOM03_FELIX_VERSION = latest
+MCOM03_FELIX_VERSION = $(MCOM03_FELIX_LINUX_ID)-latest
 MCOM03_FELIX_SITE = http://dist.elvees.com/mcom03/packages/mcom03-felix
 MCOM03_FELIX_STRIP_COMPONENTS = 0
 
