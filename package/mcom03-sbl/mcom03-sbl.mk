@@ -10,7 +10,7 @@ MCOM03_SBL_SITE_METHOD = git
 MCOM03_SBL_LICENSE = GPLv2
 MCOM03_SBL_DEPENDENCIES = host-toolchain-mipsel-elvees-elf32 \
 	arm-trusted-firmware ddrinit uboot
-MCOM03_SBL_INSTALL_TARGET_OPTS = DESTDIR=$(BINARIES_DIR) install/fast
+MCOM03_SBL_INSTALL_TARGET_OPTS = DESTDIR=$(BINARIES_DIR)/sbl install/fast
 
 MCOM03_SBL_DDRINIT_PLAT = \
 	$(word 1, $(strip $(foreach i, $(call qstrip,$(BR2_PACKAGE_DDRINIT_DEFCONFIGS)), \
