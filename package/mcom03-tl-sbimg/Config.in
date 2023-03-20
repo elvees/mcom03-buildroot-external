@@ -26,6 +26,12 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_REPO_VERSION
 	  Revision to use in the typical format used by Git
 	  E.G. a sha id, a tag, ..
 
+config BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_URL
+	string "URL to tar with certificates"
+	help
+	  Link to certificates required for making signed
+	  and encrypted SBIMG.
+
 choice
 	prompt "Select the type of security of SBIMG"
 
@@ -55,9 +61,6 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE
 	default "none"  if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
 
 if !BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
-
-config BR2_PACKAGE_MCOM03_TL_SBIMG_CERT_URL
-	string "URL to certificates"
 
 if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
 
