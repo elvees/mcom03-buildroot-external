@@ -9,6 +9,9 @@
         - mcom03-elvsmarccb-buildroot-build:
             files:
               - fragments/elvsmarccb.fragment
+        - mcom03-elvsmarc2cb2-buildroot-build:
+            files:
+              - fragments/elvmc03smarc-r2.2-elvsmarccb-r2.9.fragment
         - mcom03-elvq7cb-buildroot-build:
             files:
               - fragments/elvq7cb.fragment
