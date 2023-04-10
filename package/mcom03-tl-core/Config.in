@@ -1,0 +1,31 @@
+config BR2_PACKAGE_MCOM03_TL_CORE
+	bool "mcom03-tl-core"
+	help
+	  The package setups and provides the operation
+	  of the service subsystem and trusted services.
+
+if BR2_PACKAGE_MCOM03_TL_CORE
+
+config BR2_PACKAGE_MCOM03_TL_CORE_INSTALL_SRC
+	bool "Build from source code"
+
+config BR2_PACKAGE_MCOM03_TL_CORE_TOOLCHAIN
+	string "Toolchain"
+	help
+	  Path to the toolchain file to cross-compile
+	  tl-core with.
+
+config BR2_PACKAGE_MCOM03_TL_CORE_ADDITIONAL_VARIABLES
+	string "Additional tl-core build variables"
+	help
+	  Additional parameters for the tl-core build
+	  E.G. 'WDT_ENABLE=y DEBUG=y'
+
+config BR2_PACKAGE_MCOM03_TL_CORE_REPO_VERSION
+	string "Repository version"
+	default master
+	help
+	  Revision to use in the typical format used by Git
+	  E.G. a sha id, a tag, ..
+
+endif
