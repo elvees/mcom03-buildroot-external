@@ -5,11 +5,11 @@
 ################################################################################
 
 MCOM03_TL_SBIMG_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_SBIMG_REPO_VERSION))
-MCOM03_TL_SBIMG_SITE = git@git.elvees.com:TrustLab-Engineers-Internal/sbimg_cfg.git
+MCOM03_TL_SBIMG_SITE = ssh://gerrit.elvees.com:29418/mcom03/tl-sbimg
 MCOM03_TL_SBIMG_SITE_METHOD = git
 
 MCOM03_TL_SBIMG_DEPENDENCIES = host-bootrom-tools \
-	ddrinit mcom03-hwinit mcom03-sbl-tl mcom03-tl-common arm-trusted-firmware uboot
+	ddrinit mcom03-hwinit mcom03-sbl-tl mcom03-tl-core arm-trusted-firmware uboot
 
 MCOM03_TL_SBIMG_INSTALL_TARGET = NO
 MCOM03_TL_SBIMG_INSTALL_IMAGES = YES
