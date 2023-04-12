@@ -23,7 +23,7 @@ config BR2_PACKAGE_MCOM03_SBL_TL_ADDITIONAL_VARIABLES
 
 config BR2_PACKAGE_MCOM03_SBL_TL_REPO_VERSION
 	string "Repository version"
-	default archiveVideoCam_Ph5
+	default master
 	help
 	  Revision to use in the typical format used by Git
 	  E.G. a sha id, a tag, ..

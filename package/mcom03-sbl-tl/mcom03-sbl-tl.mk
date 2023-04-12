@@ -14,7 +14,7 @@ MCOM03_SBL_TL_DEPENDENCIES = host-toolchain-mipsel-elvees-elf32
 # Installation from source code
 ifeq ($(BR2_PACKAGE_MCOM03_SBL_TL_INSTALL_SRC),y)
 MCOM03_SBL_TL_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_SBL_TL_REPO_VERSION))
-MCOM03_SBL_TL_SITE = git@git.elvees.com:TrustLab-Engineers-Internal/sbl-tl.git
+MCOM03_SBL_TL_SITE = ssh://gerrit.elvees.com:29418/mcom03/sbl-tl
 MCOM03_SBL_TL_SITE_METHOD = git
 MCOM03_SBL_TL_GIT_SUBMODULES = YES
 
