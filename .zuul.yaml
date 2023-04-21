@@ -35,6 +35,9 @@
         - mcom03-trustphone2-buildroot-build:
             files:
               - fragments/trustphone2.fragment
+        - mcom03-nn-dev-buildroot-build:
+            files:
+              - fragments/nn-dev.fragment
         - pre-commit
 
     # Run all jobs regardless which files were modified.
