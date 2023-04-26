@@ -168,7 +168,7 @@ MCOM03_FELIX_GIT_DIR = $(MCOM03_FELIX_OVERRIDE_SRCDIR)
 else
 MCOM03_FELIX_GIT_DIR = $(MCOM03_FELIX_DL_DIR)/git
 endif
-MCOM03_FELIX_BIN_VERSION = $(shell git -C $(MCOM03_FELIX_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
+MCOM03_FELIX_BIN_VERSION = $(shell date +%Y%m%d)-$(shell git -C $(MCOM03_FELIX_GIT_DIR) describe --always || echo "unknown")
 
 # Create tarball with binaries
 define MCOM03_FELIX_INSTALL_IMAGES_CMDS
