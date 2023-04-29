@@ -82,7 +82,7 @@ endef
 
 # Installation from tarball with binaries
 else
-MCOM03_VPU_LIBS_VERSION = 00e219a-20220714
+MCOM03_VPU_LIBS_VERSION = latest
 MCOM03_VPU_LIBS_SITE = http://dist.elvees.com/mcom03/packages/mcom03-vpu-libs
 MCOM03_VPU_LIBS_STRIP_COMPONENTS = 0
 
