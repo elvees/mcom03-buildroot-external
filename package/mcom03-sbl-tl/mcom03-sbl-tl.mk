@@ -11,8 +11,17 @@ MCOM03_SBL_TL_INSTALL_IMAGES = YES
 
 MCOM03_SBL_TL_DEPENDENCIES = host-toolchain-mipsel-elvees-elf32
 
+# Force build from sources if override srcdir is enabled
+ifneq ($(MCOM03_SBL_TL_OVERRIDE_SRCDIR),)
+MCOM03_SBL_TL_INSTALL_SRC = y
+MCOM03_SBL_TL_GIT_DIR = $(MCOM03_SBL_TL_OVERRIDE_SRCDIR)
+else
+MCOM03_SBL_TL_INSTALL_SRC = $(BR2_PACKAGE_MCOM03_SBL_TL_INSTALL_SRC)
+MCOM03_SBL_TL_GIT_DIR = $(MCOM03_SBL_TL_DL_DIR)/git
+endif
+
 # Installation from source code
-ifeq ($(BR2_PACKAGE_MCOM03_SBL_TL_INSTALL_SRC),y)
+ifeq ($(MCOM03_SBL_TL_INSTALL_SRC),y)
 MCOM03_SBL_TL_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_SBL_TL_REPO_VERSION))
 MCOM03_SBL_TL_SITE = ssh://gerrit.elvees.com:29418/mcom03/sbl-tl
 MCOM03_SBL_TL_SITE_METHOD = git
@@ -26,12 +35,6 @@ define MCOM03_SBL_TL_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) clean; \
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) $(MCOM03_SBL_TL_MAKE_OPTS);
 endef
-
-ifneq ($(MCOM03_SBL_TL_OVERRIDE_SRCDIR),)
-MCOM03_SBL_TL_GIT_DIR = $(MCOM03_SBL_TL_OVERRIDE_SRCDIR)
-else
-MCOM03_SBL_TL_GIT_DIR = $(MCOM03_SBL_TL_DL_DIR)/git
-endif
 
 MCOM03_SBL_TL_TARBALL_VERSION = $(shell git -C $(MCOM03_SBL_TL_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
 
