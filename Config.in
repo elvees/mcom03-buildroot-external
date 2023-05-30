@@ -10,6 +10,13 @@ source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl-tl/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-tl-core/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-tl-sbimg/Config.in"
 
+config BR2_MCOM03_DDRINIT_DTB_MAP
+	string "List of ddrinit-dtb pairs"
+	default "$(BR2_EXTERNAL_MCOM03_PATH)/board/elvees/ddrinit-dtb-map.txt"
+	help
+	  List must have the following format:
+	  "ddrinit1:dtb1 ddrinit2:dtb2".
+
 comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
 	depends on !BR2_LINUX_KERNEL
 
