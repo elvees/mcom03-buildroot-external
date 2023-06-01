@@ -13,6 +13,7 @@ MCOM03_TL_SBIMG_DEPENDENCIES = host-bootrom-tools \
 
 MCOM03_TL_SBIMG_INSTALL_TARGET = NO
 MCOM03_TL_SBIMG_INSTALL_IMAGES = YES
+MCOM03_TL_SBIMG_INSTALL_DIR = $(BINARIES_DIR)/tl-sbimg
 
 MCOM03_TL_SBIMG_CERTS_URL = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_URL))
 MCOM03_TL_SBIMG_CERTS_TAR = $(MCOM03_TL_SBIMG_DL_DIR)/$(notdir $(MCOM03_TL_SBIMG_CERTS_URL))
@@ -27,6 +28,13 @@ MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS = $(strip $(foreach i, \
 	$(call qstrip,$(BR2_PACKAGE_DDRINIT_DEFCONFIGS)), \
 		$(if $(findstring bootrom,$i),$i)))
 
+# Create DTB list from ddrinit-DTB list
+MCOM03_TL_SBIMG_DTB_LIST = \
+	$(foreach config,$(shell cat $(BR2_MCOM03_DDRINIT_DTB_MAP)), \
+		$(eval MCOM03_TL_SBIMG_CONFIG_STR = $(subst :, ,$(config))) \
+		$(word 2,$(MCOM03_TL_SBIMG_CONFIG_STR)).dtb \
+	)
+
 MCOM03_TL_SBIMG_MAKE_OPTS += \
 	MCOM03_TL_SBIMG_BOOTROM_TOOLS_INSTALL_DIR=$(HOST_BOOTROM_TOOLS_INSTALL_DIR) \
 	MCOM03_TL_SBIMG_INSTALL_IMAGES_DIR=$(BINARIES_DIR) \
@@ -38,7 +46,8 @@ MCOM03_TL_SBIMG_MAKE_OPTS += \
 	MCOM03_TL_SBIMG_NON_ROOT_CA=$(MCOM03_TL_SBIMG_NON_ROOT_CA) \
 	MCOM03_TL_SBIMG_FW_CA=$(MCOM03_TL_SBIMG_FW_CA) \
 	MCOM03_TL_SBIMG_FW_PK=$(MCOM03_TL_SBIMG_FW_PK) \
-	MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS=$(MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS)
+	MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS="$(MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS)" \
+	MCOM03_TL_SBIMG_DTB_LIST="$(MCOM03_TL_SBIMG_DTB_LIST)"
 
 MCOM03_TL_SBIMG_EXTRA_DOWNLOADS = $(MCOM03_TL_SBIMG_CERTS_URL)
 
@@ -63,18 +72,15 @@ define MCOM03_TL_SBIMG_BUILD_CMDS
 endef
 
 # The resulting bootrom sbimg image built with ddrinit defconfig
-# <board>:bootrom:<fragment1> will have the following name
+# <board>:bootrom:<fragment1> will have the following name:
 # <board>-bootrom-<fragment1>.sbimg. Only ddrinit defconfig with
-# bootrom fragment will result in producing of sbimg images.
+# bootrom fragment will result in producing of bootrom sbimg images.
+# The resulting sbl-tl sbimg image built with DTB <dtb> will have
+# the following name: sbl-tl-<dtb>.sbimg
 define MCOM03_TL_SBIMG_INSTALL_IMAGES_CMDS
-	$(if $(MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS),
-		for i in $(MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS); do \
-			cp -f $(@D)/image/$${i//:/-}.sbimg $(BINARIES_DIR); \
-		done
-
-		cp -f $(@D)/image/sbl-tl.sbimg $(BINARIES_DIR)
-		cp -f $(@D)/image/sbl-tl-otp.bin $(BINARIES_DIR)
-	)
+	mkdir -p $(MCOM03_TL_SBIMG_INSTALL_DIR)
+	cp -f $(@D)/image/*.sbimg $(MCOM03_TL_SBIMG_INSTALL_DIR)
+	cp -f $(@D)/image/sbl-tl-otp.bin $(MCOM03_TL_SBIMG_INSTALL_DIR)
 endef
 
 $(eval $(generic-package))
