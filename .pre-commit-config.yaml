@@ -24,3 +24,12 @@ repos:
                 package/rtl-test-stop/.*|
                 package/mcom03-vpu-libs/mcom03-vpu-libs.mk|
             )$
+  - repo: https://github.com/pycqa/doc8
+    rev: v1.1.1
+    hooks:
+      - id: doc8
+        args: [--quiet, --max-line-length=100]
+  - repo: https://github.com/myint/rstcheck
+    rev: v6.1.2
+    hooks:
+      - id: rstcheck
