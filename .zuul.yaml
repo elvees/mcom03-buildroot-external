@@ -24,6 +24,7 @@
               - .*-rogue-.*
               - .*-vpu-.*
               - configs/mcom03_defconfig
+              - fragments/cv.fragment
               - fragments/mcom03bub.fragment
               - fragments/private.fragment
         - mcom03-rockpi-buildroot-build:
