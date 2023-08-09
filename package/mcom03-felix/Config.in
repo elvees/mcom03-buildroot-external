@@ -56,6 +56,12 @@ config BR2_PACKAGE_MCOM03_FELIX_FOCUS_TEST
 	help
 	  Install ISP focus test.
 
+config BR2_PACKAGE_MCOM03_FELIX_SENSOR_MODES
+	bool "felix-sensor-modes"
+	default y
+	help
+	  Install ISP sensor modes printing tool.
+
 config BR2_PACKAGE_MCOM03_FELIX_SENSOR_OV2718
 	bool "OV2718 support"
 	default y
