@@ -48,7 +48,7 @@ endef
 # Installation from tarball with binaries
 else
 MCOM03_TL_CORE_VERSION = latest
-MCOM03_TL_CORE_SITE = http://dist.elvees.com/mcom03/packages/mcom03-tl-core
+MCOM03_TL_CORE_SITE = $(BR2_ELVEES_BINARY_PACKAGES_SITE)/mcom03-tl-core
 MCOM03_TL_CORE_STRIP_COMPONENTS = 0
 
 define MCOM03_TL_CORE_INSTALL_IMAGES_CMDS

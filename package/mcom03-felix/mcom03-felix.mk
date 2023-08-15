@@ -185,7 +185,7 @@ $(eval $(cmake-package))
 # Installation from tarball with binaries
 else
 MCOM03_FELIX_VERSION = $(MCOM03_FELIX_LINUX_ID)-latest
-MCOM03_FELIX_SITE = http://dist.elvees.com/mcom03/packages/mcom03-felix
+MCOM03_FELIX_SITE = $(BR2_ELVEES_BINARY_PACKAGES_SITE)/mcom03-felix
 MCOM03_FELIX_STRIP_COMPONENTS = 0
 
 define MCOM03_FELIX_INSTALL_TARGET_CMDS

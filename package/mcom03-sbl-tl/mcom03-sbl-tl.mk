@@ -48,7 +48,7 @@ endef
 # Installation from tarball with binaries
 else
 MCOM03_SBL_TL_VERSION = latest
-MCOM03_SBL_TL_SITE = http://dist.elvees.com/mcom03/packages/mcom03-sbl-tl
+MCOM03_SBL_TL_SITE = $(BR2_ELVEES_BINARY_PACKAGES_SITE)/mcom03-sbl-tl
 MCOM03_SBL_TL_STRIP_COMPONENTS = 0
 
 define MCOM03_SBL_TL_INSTALL_IMAGES_CMDS

@@ -48,7 +48,7 @@ $(eval $(cmake-package))
 # Installation from tarball with binaries
 else
 GST_FELIX_VERSION = latest
-GST_FELIX_SITE = http://dist.elvees.com/mcom03/packages/gst-felix
+GST_FELIX_SITE = $(BR2_ELVEES_BINARY_PACKAGES_SITE)/gst-felix
 GST_FELIX_STRIP_COMPONENTS = 0
 
 define GST_FELIX_INSTALL_TARGET_CMDS

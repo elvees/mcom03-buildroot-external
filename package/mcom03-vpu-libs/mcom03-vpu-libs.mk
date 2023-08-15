@@ -83,7 +83,7 @@ endef
 # Installation from tarball with binaries
 else
 MCOM03_VPU_LIBS_VERSION = latest
-MCOM03_VPU_LIBS_SITE = http://dist.elvees.com/mcom03/packages/mcom03-vpu-libs
+MCOM03_VPU_LIBS_SITE = $(BR2_ELVEES_BINARY_PACKAGES_SITE)/mcom03-vpu-libs
 MCOM03_VPU_LIBS_STRIP_COMPONENTS = 0
 
 define MCOM03_VPU_LIBS_INSTALL_TARGET_CMDS

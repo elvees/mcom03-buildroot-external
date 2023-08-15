@@ -38,6 +38,12 @@ source "$BR2_EXTERNAL_MCOM03_PATH/package/sensor-phy/Config.in"
 
 endif
 
+config BR2_ELVEES_BINARY_PACKAGES_SITE
+	string "URL for site with private binaries"
+	default "http://dist.elvees.com/mcom03/packages"
+	help
+	  URL with published private binaries.
+
 source "$BR2_EXTERNAL_MCOM03_PATH/toolchain/toolchain-mipsel-elvees-elf32/Config.in"
 
 endif
