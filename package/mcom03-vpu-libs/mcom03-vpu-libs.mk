@@ -34,7 +34,7 @@ MCOM03_VPU_LIBS_SCONS_OPTS = arch=arm_v8 selfie=1 oob=1 unit=1
 define MCOM03_VPU_LIBS_BUILD_CMDS
 	(cd $(@D); \
 	export CROSS_COMPILE=$(TARGET_CROSS); \
-	$(HOST_DIR)/bin/python $(SCONS) \
+	$(SCONS) \
 	$(MCOM03_VPU_LIBS_SCONS_ENV) \
 	$(MCOM03_VPU_LIBS_SCONS_OPTS))
 endef
