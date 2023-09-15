@@ -7,8 +7,10 @@
 MCOM03_FELIX_DEPENDENCIES = linux sensor-phy
 
 MCOM03_FELIX_LINUX_ID = $(call qstrip,$(BR2_PACKAGE_MCOM03_FELIX_LINUX_VERSION))
+ifeq ($(BR2_PACKAGE_MCOM03_FELIX)$(BR_BUILDING),yy)
 ifeq ($(MCOM03_FELIX_LINUX_ID),)
 $(error Linux version for Felix not specified. Check your BR2_PACKAGE_MCOM03_FELIX_LINUX_VERSION setting)
+endif
 endif
 
 # Installation from source code
