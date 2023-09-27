@@ -4,8 +4,17 @@
 #
 ################################################################################
 
+# Force build from sources if override srcdir is enabled
+ifneq ($(MCOM03_VPU_LIBS_OVERRIDE_SRCDIR),)
+MCOM03_VPU_LIBS_INSTALL_SRC = y
+MCOM03_VPU_LIBS_GIT_DIR = $(MCOM03_VPU_LIBS_OVERRIDE_SRCDIR)
+else
+MCOM03_VPU_LIBS_INSTALL_SRC = $(BR2_PACKAGE_MCOM03_VPU_LIBS_INSTALL_SRC)
+MCOM03_VPU_LIBS_GIT_DIR = $(MCOM03_VPU_LIBS_DL_DIR)/git
+endif
+
 # Installation from source code
-ifeq ($(BR2_PACKAGE_MCOM03_VPU_LIBS_INSTALL_SRC),y)
+ifeq ($(MCOM03_VPU_LIBS_INSTALL_SRC),y)
 MCOM03_VPU_LIBS_VERSION = master
 MCOM03_VPU_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/vpu-libs
 MCOM03_VPU_LIBS_SITE_METHOD = git
@@ -56,12 +65,6 @@ define MCOM03_VPU_LIBS_INSTALL_TARGET_CMDS
 	$(INSTALL) -Dm0755 $(MCOM03_VPU_LIBS_FILES_LIB) $(TARGET_DIR)/usr/lib/
 	$(INSTALL) -Dm0755 $(MCOM03_VPU_LIBS_FILES_BIN) $(TARGET_DIR)/usr/bin/
 endef
-
-ifneq ($(MCOM03_VPU_LIBS_OVERRIDE_SRCDIR),)
-MCOM03_VPU_LIBS_GIT_DIR = $(MCOM03_VPU_LIBS_OVERRIDE_SRCDIR)
-else
-MCOM03_VPU_LIBS_GIT_DIR = $(MCOM03_VPU_LIBS_DL_DIR)/git
-endif
 
 MCOM03_VPU_LIBS_TARBALL_VERSION = $(shell git -C $(MCOM03_VPU_LIBS_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
 
