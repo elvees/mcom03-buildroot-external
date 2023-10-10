@@ -9,8 +9,10 @@
               - .*-rogue-.*
               - .*-vpu-.*
               - configs/mcom03_defconfig
-              - fragments/cv.fragment
               - fragments/private.fragment
+        - mcom03-linux510-cv-buildroot-build:
+            files:
+              - fragments/cv.fragment
         - mcom03-weston-buildroot-build:
             files:
               - .*-rogue-.*
