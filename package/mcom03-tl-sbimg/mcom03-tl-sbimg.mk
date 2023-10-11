@@ -8,12 +8,13 @@ MCOM03_TL_SBIMG_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_SBIMG_REPO_VERSI
 MCOM03_TL_SBIMG_SITE = ssh://gerrit.elvees.com:29418/mcom03/tl-sbimg
 MCOM03_TL_SBIMG_SITE_METHOD = git
 
+MCOM03_TL_SBIMG_BUILD_ID = $(call qstrip,$(BUILD_ID))
+
 MCOM03_TL_SBIMG_DEPENDENCIES = host-bootrom-tools \
 	ddrinit mcom03-sbl mcom03-sbl-tl mcom03-tl-core arm-trusted-firmware uboot
 
 MCOM03_TL_SBIMG_INSTALL_TARGET = NO
 MCOM03_TL_SBIMG_INSTALL_IMAGES = YES
-MCOM03_TL_SBIMG_INSTALL_DIR = $(BINARIES_DIR)/tl-sbimg
 
 MCOM03_TL_SBIMG_CERTS_URL = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_URL))
 MCOM03_TL_SBIMG_CERTS_TAR = $(MCOM03_TL_SBIMG_DL_DIR)/$(notdir $(MCOM03_TL_SBIMG_CERTS_URL))
@@ -28,12 +29,7 @@ MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS = $(strip $(foreach i, \
 	$(call qstrip,$(BR2_PACKAGE_DDRINIT_DEFCONFIGS)), \
 		$(if $(findstring bootrom,$i),$i)))
 
-# Create DTB list from ddrinit-DTB list
-MCOM03_TL_SBIMG_DTB_LIST = \
-	$(foreach config,$(shell cat $(BR2_MCOM03_DDRINIT_DTB_MAP)), \
-		$(eval MCOM03_TL_SBIMG_CONFIG_STR = $(subst :, ,$(config))) \
-		$(word 2,$(MCOM03_TL_SBIMG_CONFIG_STR)).dtb \
-	)
+MCOM03_TL_SBIMG_DDRINIT_DTB_MAP = $(call qstrip,$(BR2_MCOM03_DDRINIT_DTB_MAP))
 
 MCOM03_TL_SBIMG_MAKE_OPTS += \
 	MCOM03_TL_SBIMG_BOOTROM_TOOLS_INSTALL_DIR=$(HOST_BOOTROM_TOOLS_INSTALL_DIR) \
@@ -47,7 +43,8 @@ MCOM03_TL_SBIMG_MAKE_OPTS += \
 	MCOM03_TL_SBIMG_FW_CA=$(MCOM03_TL_SBIMG_FW_CA) \
 	MCOM03_TL_SBIMG_FW_PK=$(MCOM03_TL_SBIMG_FW_PK) \
 	MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS="$(MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS)" \
-	MCOM03_TL_SBIMG_DTB_LIST="$(MCOM03_TL_SBIMG_DTB_LIST)"
+	MCOM03_TL_SBIMG_DDRINIT_DTB_MAP="$(MCOM03_TL_SBIMG_DDRINIT_DTB_MAP)" \
+	MCOM03_TL_SBIMG_BUILD_ID=$(MCOM03_TL_SBIMG_BUILD_ID)
 
 MCOM03_TL_SBIMG_EXTRA_DOWNLOADS = $(MCOM03_TL_SBIMG_CERTS_URL)
 
@@ -76,11 +73,12 @@ endef
 # <board>-bootrom-<fragment1>.sbimg. Only ddrinit defconfig with
 # bootrom fragment will result in producing of bootrom sbimg images.
 # The resulting sbl-tl sbimg image built with DTB <dtb> will have
-# the following name: sbl-tl-<dtb>.sbimg
+# the following name: sbl-tl-<dtb>.sbimg.
+# The resulting TAR archive contains package.toml, sbl-tl-<dtb>.sbimg,
+# <board>-bootrom-<fragment1>.sbimg and sbl-tl-opt.bin. The archive
+# has the following name: <dtb>.tl-image.
 define MCOM03_TL_SBIMG_INSTALL_IMAGES_CMDS
-	mkdir -p $(MCOM03_TL_SBIMG_INSTALL_DIR)
-	cp -f $(@D)/image/*.sbimg $(MCOM03_TL_SBIMG_INSTALL_DIR)
-	cp -f $(@D)/image/sbl-tl-otp.bin $(MCOM03_TL_SBIMG_INSTALL_DIR)
+	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) $(MCOM03_TL_SBIMG_MAKE_OPTS) install
 endef
 
 $(eval $(generic-package))
