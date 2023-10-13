@@ -1,4 +1,4 @@
-elvmc03:mcom03-elvmc03-r2.2-elvmc03cb-r1.0
+elvmc03:mcom03-elvmc03-r2.2-elvmc03cb-r1.1.0
 elvmc03ce-r2.4:mcom03-elvmc03ce-r2.4.0-elvcecb-r1.0.0
 elvmc03q7:mcom03-elvmc03q7-r1.0-elvq7cb-r1.0
 elvmc03q7-r2.1.1:mcom03-elvmc03q7-r2.1.1-elvq7cb-r1.0
