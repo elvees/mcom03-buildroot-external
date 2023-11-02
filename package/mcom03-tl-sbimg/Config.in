@@ -39,18 +39,12 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
 	bool "enc+sign"
 	help
 	  Make SBIMG with signed and encrypted binary
-	  componets.
+	  components.
 
 config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN
 	bool "sign"
 	help
-	  Make SBIMG with signed binary componets.
-
-config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
-	bool "none"
-	help
-	  Make SBIMG with unsigned and unencrypted
-	  binary componets.
+	  Make SBIMG with signed binary components.
 
 endchoice
 
@@ -58,9 +52,6 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE
 	string
 	default "enc"	if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
 	default "sign"  if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN
-	default "none"  if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
-
-if !BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
 
 if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
 
@@ -78,8 +69,6 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_ENC_KEY
 	string "Encryption Key"
 	help
 	  Encryption Key (128 бит) <0x...>
-
-endif
 
 endif
 
