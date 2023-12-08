@@ -16,6 +16,8 @@ MCOM03_TL_SBIMG_DEPENDENCIES = host-bootrom-tools \
 MCOM03_TL_SBIMG_INSTALL_TARGET = NO
 MCOM03_TL_SBIMG_INSTALL_IMAGES = YES
 
+MCOM03_TL_SBIMG_MAKE_RECOVERY = $(BR2_PACKAGE_MCOM03_TL_SBIMG_MAKE_RECOVERY)
+
 MCOM03_TL_SBIMG_CERTS_URL = $(call qstrip,$(BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_URL))
 MCOM03_TL_SBIMG_CERTS_TAR = $(MCOM03_TL_SBIMG_DL_DIR)/$(notdir $(MCOM03_TL_SBIMG_CERTS_URL))
 
@@ -44,7 +46,8 @@ MCOM03_TL_SBIMG_MAKE_OPTS += \
 	MCOM03_TL_SBIMG_FW_PK=$(MCOM03_TL_SBIMG_FW_PK) \
 	MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS="$(MCOM03_TL_SBIMG_DDRINIT_DEFCONFIGS)" \
 	MCOM03_TL_SBIMG_DDRINIT_DTB_MAP="$(MCOM03_TL_SBIMG_DDRINIT_DTB_MAP)" \
-	MCOM03_TL_SBIMG_BUILD_ID=$(MCOM03_TL_SBIMG_BUILD_ID)
+	MCOM03_TL_SBIMG_BUILD_ID=$(MCOM03_TL_SBIMG_BUILD_ID) \
+	MCOM03_TL_SBIMG_MAKE_RECOVERY=$(MCOM03_TL_SBIMG_MAKE_RECOVERY)
 
 MCOM03_TL_SBIMG_EXTRA_DOWNLOADS = $(MCOM03_TL_SBIMG_CERTS_URL)
 
@@ -73,10 +76,17 @@ endef
 # <board>-bootrom-<fragment1>.sbimg. Only ddrinit defconfig with
 # bootrom fragment will result in producing of bootrom sbimg images.
 # The resulting sbl-tl sbimg image built with DTB <dtb> will have
-# the following name: sbl-tl-<dtb>.sbimg.
-# The resulting TAR archive contains package.toml, sbl-tl-<dtb>.sbimg,
-# <board>-bootrom-<fragment1>.sbimg and sbl-tl-opt.bin. The archive
-# has the following name: <dtb>.tl-image.
+# the following name: sbl-tl-<dtb>.sbimg or sbl-tl-<dtb>-recovery.sbimg
+# depending on package type (normal or recovery).
+#
+# In case of recovery package type the resulting TAR archive will contain
+# package.toml, sbl-tl-otp.bin, sbl-tl-<dtb>-recovery.sbimg and
+# <board>-bootrom-<fragment1>.sbimg.
+# The archive will have the following name: <dtb>-recovery.tl-image.
+#
+# In case of normal package type the resulting TAR archive will contain package.toml,
+# sbl-tl-otp.bin, sbl-tl-<dtb>.sbimg and <board>-bootrom-<fragment1>.sbimg.
+# The archive will have the following name: <dtb>.tl-image.
 define MCOM03_TL_SBIMG_INSTALL_IMAGES_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) $(MCOM03_TL_SBIMG_MAKE_OPTS) install
 endef
