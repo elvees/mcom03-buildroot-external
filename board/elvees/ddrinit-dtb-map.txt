@@ -13,6 +13,7 @@ elvmc03smarc-r2.6.1:mcom03-elvmc03smarc-r2.6.1-elvsmarccb-r2.10.3
 elvmc03smarc-r2.6.1:mcom03-elvmc03smarc-r2.6.1-elvsmarccb-r3.1.0
 egwpm:mcom03-egwpm-r1.0-egwcb-r1.0
 mcom03bub:mcom03-bub-r1.3.0
+monoboard-r1.1.1:mcom03-monoboard-r1.1.1
 skifmp-v1.0:mcom03-skifmp-v1.0
 trustphonepm:mcom03-trustphonepm-r1.5-trustphonecb-r1.1
 trustphonepm:mcom03-trustphonepm-r2.1-trustphonecb-r2.0
