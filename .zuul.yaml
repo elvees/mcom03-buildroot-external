@@ -8,20 +8,23 @@
               - .*-felix.*
               - .*-rogue-.*
               - .*-vpu-.*
-              - configs/mcom03_defconfig
-              - fragments/private.fragment
+              - configs/mcom03_defconfig$
+              - fragments/private.fragment$
         - mcom03-linux510-cv-buildroot-build:
             files:
-              - fragments/cv.fragment
+              - fragments/cv.fragment$
         - mcom03-weston-buildroot-build:
             files:
               - .*-rogue-.*
-              - fragments/private.fragment
-              - fragments/weston.fragment
+              - fragments/private.fragment$
+              - fragments/weston.fragment$
         - mcom03-nn-dev-buildroot-build:
             files:
               - fragments/nn-dev.fragment
         - pre-commit
+        - mcom03-sbl-build:
+            files:
+              - board/elvees/ddrinit-dtb-map.txt$
 
     # Feel free to edit jobs below
     experimental:
