@@ -35,11 +35,11 @@ GST_FELIX_GIT_DIR = $(GST_FELIX_OVERRIDE_SRCDIR)
 else
 GST_FELIX_GIT_DIR = $(GST_FELIX_DL_DIR)/git
 endif
-GST_FELIX_BIN_VERSION = $(shell git -C $(GST_FELIX_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
+
 # Create tarball with binaries
 define GST_FELIX_INSTALL_IMAGES_CMDS
 	tar -C $(TARGET_DIR) -czf \
-		$(BINARIES_DIR)/gst-felix-$(GST_FELIX_BIN_VERSION).tar.gz \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,GST_FELIX).gz \
 		$(GST_FELIX_TARGET_FILES)
 endef
 

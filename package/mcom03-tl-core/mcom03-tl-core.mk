@@ -37,12 +37,10 @@ define MCOM03_TL_CORE_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) $(MCOM03_TL_CORE_MAKE_OPTS);
 endef
 
-MCOM03_TL_CORE_TARBALL_VERSION = $(shell git -C $(MCOM03_TL_CORE_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
-
 define MCOM03_TL_CORE_INSTALL_IMAGES_CMDS
 	cp -f $(@D)/$(MCOM03_TL_CORE_IMAGE) $(BINARIES_DIR)
 	tar -C $(@D) -czf \
-		$(BINARIES_DIR)/mcom03-tl-core-$(MCOM03_TL_CORE_TARBALL_VERSION).tar.gz \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_TL_CORE).gz \
 		$(MCOM03_TL_CORE_IMAGE)
 endef
 

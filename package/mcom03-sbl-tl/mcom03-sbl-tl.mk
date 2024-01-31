@@ -37,12 +37,10 @@ define MCOM03_SBL_TL_BUILD_CMDS
 	$(TARGET_MAKE_ENV) $(MAKE) -C $(@D) $(MCOM03_SBL_TL_MAKE_OPTS);
 endef
 
-MCOM03_SBL_TL_TARBALL_VERSION = $(shell git -C $(MCOM03_SBL_TL_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
-
 define MCOM03_SBL_TL_INSTALL_IMAGES_CMDS
 	cp -f $(@D)/$(MCOM03_SBL_TL_IMAGE) $(BINARIES_DIR)
 	tar -C $(@D) -czf \
-		$(BINARIES_DIR)/mcom03-sbl-tl-$(MCOM03_SBL_TL_TARBALL_VERSION).tar.gz \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_SBL_TL).gz \
 		$(MCOM03_SBL_TL_IMAGE)
 endef
 
