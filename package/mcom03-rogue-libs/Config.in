@@ -17,6 +17,12 @@ config BR2_PACKAGE_MCOM03_ROGUE_LIBS
 
 if BR2_PACKAGE_MCOM03_ROGUE_LIBS
 
+config BR2_PACKAGE_MCOM03_ROGUE_LIBS_INSTALL_SRC
+	bool "Build from source code"
+	help
+	  If not selected, the package will be installed from
+	  tarball with binaries.
+
 config BR2_PACKAGE_MCOM03_ROGUE_LIBS_OFFSCREEN_TESTS
 	bool "off-screen tests"
 	help
@@ -35,10 +41,6 @@ config BR2_PACKAGE_MCOM03_ROGUE_LIBS_PDUMP
 	help
 	  PDump is used for snapshoting and playing back the
 	  applications.
-
-endif
-
-if BR2_PACKAGE_MCOM03_ROGUE_LIBS
 
 config BR2_PACKAGE_PROVIDES_LIBGLES
 	default "mcom03-rogue-libs"

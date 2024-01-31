@@ -4,12 +4,15 @@
 #
 ################################################################################
 
-MCOM03_ROGUE_LIBS_VERSION = elvees-1.9.y
-MCOM03_ROGUE_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/rogue-libs
-MCOM03_ROGUE_LIBS_SITE_METHOD = git
-MCOM03_ROGUE_LIBS_LICENSE = Proprietary
+# Force build from sources if override srcdir is enabled
+ifneq ($(MCOM03_ROGUE_LIBS_OVERRIDE_SRCDIR),)
+MCOM03_ROGUE_LIBS_INSTALL_SRC = y
+else
+MCOM03_ROGUE_LIBS_INSTALL_SRC = $(BR2_PACKAGE_MCOM03_ROGUE_LIBS_INSTALL_SRC)
+endif
 
-MCOM03_ROGUE_LIBS_INSTALL_IMAGES = YES
+MCOM03_ROGUE_LIBS_LICENSE = Proprietary
+MCOM03_ROGUE_LIBS_PROVIDES = libgles libopencl
 
 MCOM03_ROGUE_LIBS_DEPENDENCIES = host-bison \
 	host-flex \
@@ -17,9 +20,14 @@ MCOM03_ROGUE_LIBS_DEPENDENCIES = host-bison \
 	libxml2 \
 	libdrm
 
-MCOM03_ROGUE_LIBS_INSTALL_STAGING = YES
+# Installation from the source code
+ifeq ($(MCOM03_ROGUE_LIBS_INSTALL_SRC),y)
+MCOM03_ROGUE_LIBS_VERSION = elvees-1.9.y
+MCOM03_ROGUE_LIBS_SITE = ssh://gerrit.elvees.com:29418/mcom03/rogue-libs
+MCOM03_ROGUE_LIBS_SITE_METHOD = git
 
-MCOM03_ROGUE_LIBS_PROVIDES = libgles libopencl
+MCOM03_ROGUE_LIBS_INSTALL_IMAGES = YES
+MCOM03_ROGUE_LIBS_INSTALL_STAGING = YES
 
 # this package requires custom llvm
 MCOM03_ROGUE_LIBS_LLVM_DIR=$(@D)/llvm
@@ -102,6 +110,14 @@ define MCOM03_ROGUE_LIBS_INSTALL_STAGING_CMDS
 	$(MAKE) -C $(@D) $(MCOM03_ROGUE_LIBS_SETTINGS) DISCIMAGE=$(STAGING_DIR) install
 	$(INSTALL) -D -m 0644 $(MCOM03_ROGUE_LIBS_PKGDIR)glesv2.pc \
 		$(STAGING_DIR)/usr/lib/pkgconfig/glesv2.pc
+
+	# Create tar with staging files
+	tar -C $(@D) -rf \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS) \
+		include/khronos --transform 's,^include/khronos,staging/usr/include,'
+	tar -C $(STAGING_DIR) -rf \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS) \
+		usr/lib/pkgconfig/glesv2.pc --transform 's,^,staging/,'
 endef
 
 define MCOM03_ROGUE_LIBS_INSTALL_TARGET_CMDS
@@ -116,8 +132,11 @@ define MCOM03_ROGUE_LIBS_INSTALL_IMAGES_CMDS
 	$(MAKE) -C $(@D) $(MCOM03_ROGUE_LIBS_SETTINGS) \
 		DISCIMAGE=$(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR) install
 
-	tar -C $(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR) -czf $(BINARIES_DIR)/mcom03-rogue-libs-$\
-		$(MCOM03_ROGUE_LIBS_VERSION)-$(shell date --iso).tar.gz .
+	rm $(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR)/etc/init.d/rc.pvr
+
+	tar -C $(@D) -rf \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS) \
+		binaries --transform 's,^binaries,target,'
 endef
 
 # Linux will load driver automatically
@@ -125,6 +144,27 @@ define MCOM03_ROGUE_LIBS_REMOVE_INIT
 	rm -rf $(TARGET_DIR)/etc/init.d/rc.pvr
 endef
 
+define MCOM03_ROGUE_LIBS_CREATE_TARBALL
+	gzip -f $(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS)
+endef
+
 MCOM03_ROGUE_LIBS_POST_INSTALL_TARGET_HOOKS += MCOM03_ROGUE_LIBS_REMOVE_INIT
+MCOM03_ROGUE_LIBS_POST_INSTALL_IMAGES_HOOKS += MCOM03_ROGUE_LIBS_CREATE_TARBALL
+
+# Installation from tarball with binaries
+else
+MCOM03_ROGUE_LIBS_VERSION = latest
+MCOM03_ROGUE_LIBS_SITE = $(BR2_ELVEES_BINARY_PACKAGES_SITE)/mcom03-rogue-libs
+MCOM03_ROGUE_LIBS_STRIP_COMPONENTS = 0
+MCOM03_ROGUE_LIBS_BIN_ARCH_EXCLUDE = rgx.fw.22.68.54.30
+
+define MCOM03_ROGUE_LIBS_INSTALL_TARGET_CMDS
+	# Use rsync as cp can't follow target symlinks
+	rsync -rKL $(@D)/target/* $(TARGET_DIR)
+	rsync -rKL $(@D)/target/* $(STAGING_DIR)
+	rsync -rKL $(@D)/staging/* $(STAGING_DIR)
+endef
+
+endif
 
 $(eval $(generic-package))
