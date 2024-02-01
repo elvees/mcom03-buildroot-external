@@ -2,7 +2,17 @@
 - project:
     check:
       jobs:
-        - mcom03-linux510-buildroot-build
+        - mcom03-linux510-buildroot-build:
+            irrelevant-files:
+              - .pre-commit-config.yaml$
+              - fragments/cv.fragment$
+              - fragments/hpc.fragment
+              - fragments/nn-dev.fragment
+              - fragments/private.fragment$
+              - fragments/tl.fragment$
+              - fragments/weston.fragment$
+              - package/mcom03-tl-.*
+              - README.rst$
         - mcom03-linux510-priv-buildroot-build:
             files:
               - .*-felix.*
