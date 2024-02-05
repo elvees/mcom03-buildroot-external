@@ -32,6 +32,11 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_URL
 	  Link to certificates required for making signed
 	  and encrypted SBIMG.
 
+config BR2_PACKAGE_MCOM03_TL_SBIMG_MAKE_RECOVERY
+	bool "Make recovery SBIMG"
+	help
+	  Only make recovery SBIMG.
+
 choice
 	prompt "Select the type of security of SBIMG"
 
