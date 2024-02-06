@@ -13,7 +13,7 @@ MCOM03_ROGUE_LIBS_INSTALL_IMAGES = YES
 
 MCOM03_ROGUE_LIBS_DEPENDENCIES = host-bison \
 	host-flex \
-	host-python \
+	host-python3 \
 	libxml2 \
 	libdrm
 
