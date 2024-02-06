@@ -7,11 +7,14 @@ config BR2_PACKAGE_MCOM03_ROGUE_LIBS
 	select BR2_PACKAGE_HOST_PYTHON3
 	select BR2_PACKAGE_HOST_FLEX
 	select BR2_PACKAGE_HOST_BISON
+	select BR2_PACKAGE_HOST_WAYLAND
 	select BR2_PACKAGE_HAS_LIBGLES
 	select BR2_PACKAGE_HAS_LIBOPENCL
 	select BR2_PACKAGE_LIBXML2
 	select BR2_PACKAGE_MESA3D_DRI_DRIVER_PVR
 	select BR2_PACKAGE_MESA3D_OPENGL_EGL
+	select BR2_PACKAGE_HAS_LIBVULKAN
+	select BR2_PACKAGE_WAYLAND
 	help
 	  User space libraries for MCom-03 PowerVR Rogue GPU.
 
@@ -46,6 +49,9 @@ config BR2_PACKAGE_PROVIDES_LIBGLES
 	default "mcom03-rogue-libs"
 
 config BR2_PACKAGE_PROVIDES_LIBOPENCL
+	default "mcom03-rogue-libs"
+
+config BR2_PACKAGE_PROVIDES_LIBVULKAN
 	default "mcom03-rogue-libs"
 
 endif

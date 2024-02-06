@@ -14,13 +14,15 @@ MCOM03_ROGUE_LIBS_GIT_DIR = $(MCOM03_ROGUE_LIBS_DL_DIR)/git
 endif
 
 MCOM03_ROGUE_LIBS_LICENSE = Proprietary
-MCOM03_ROGUE_LIBS_PROVIDES = libgles libopencl
+MCOM03_ROGUE_LIBS_PROVIDES = libgles libopencl libvulkan
 
 MCOM03_ROGUE_LIBS_DEPENDENCIES = host-bison \
 	host-flex \
 	host-python3 \
+	host-wayland \
 	libxml2 \
-	libdrm
+	libdrm \
+	wayland
 
 # Installation from the source code
 ifeq ($(MCOM03_ROGUE_LIBS_INSTALL_SRC),y)
