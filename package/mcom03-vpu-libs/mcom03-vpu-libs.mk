@@ -68,16 +68,14 @@ define MCOM03_VPU_LIBS_INSTALL_TARGET_CMDS
 	ln -s libmveomx.so.0.1 $(TARGET_DIR)/usr/lib/libOMX_Core.so
 endef
 
-MCOM03_VPU_LIBS_TARBALL_VERSION = $(shell git -C $(MCOM03_VPU_LIBS_GIT_DIR) describe --always || echo "unknown")-$(shell date +%Y%m%d)
-
 define MCOM03_VPU_LIBS_INSTALL_IMAGES_CMDS
 	tar -C $(TARGET_DIR) -cf \
-		$(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_VPU_LIBS) \
 		$(MCOM03_VPU_LIBS_TARGET_FILES) --transform 's,^,target/,'
 	tar -C $(STAGING_DIR) -rf \
-		$(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_VPU_LIBS) \
 		usr/include/IL --transform 's,^,staging/,'
-	gzip -f $(BINARIES_DIR)/mcom03-vpu-libs-$(MCOM03_VPU_LIBS_TARBALL_VERSION).tar
+	gzip -f $(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_VPU_LIBS)
 endef
 
 define MCOM03_VPU_LIBS_INSTALL_STAGING_CMDS
