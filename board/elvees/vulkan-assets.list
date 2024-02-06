@@ -1,0 +1,11 @@
+.*shaders.*
+.*\textures/crate01_color_height_rgba.ktx
+.*\textures/crate02_color_height_rgba.ktx
+.*\textures/metalplate_nomips_rgba.ktx
+.*\models/cube.gltf
+.*\models/CesiumMan/glTF/CesiumMan.gltf
+.*\models/CesiumMan/glTF/CesiumMan_data.bin
+.*\models/CesiumMan/glTF/CesiumMan_img0.jpg
+.*\models/tunnel_cylinder.gltf
+.*ttf
+.*fnt
