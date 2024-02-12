@@ -2,16 +2,14 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG
 	bool "mcom03-tl-sbimg"
 	depends on BR2_PACKAGE_DDRINIT
 	depends on BR2_PACKAGE_MCOM03_SBL
-	depends on BR2_PACKAGE_MCOM03_SBL_TL
 	depends on BR2_TARGET_ARM_TRUSTED_FIRMWARE
 	depends on BR2_TARGET_UBOOT
 	help
 	  Make secure boot image (SBIMG).
 
-comment "MCom-03 TL-SBIMG needs ddrinit, mcom03-sbl, mcom03-sbl-tl, arm-trusted-firmware, uboot"
+comment "MCom-03 TL-SBIMG needs ddrinit, mcom03-sbl, arm-trusted-firmware, uboot"
 	depends on !BR2_PACKAGE_DDRINIT || \
 		!BR2_PACKAGE_MCOM03_SBL || \
-		!BR2_PACKAGE_MCOM03_SBL_TL || \
 		!BR2_TARGET_ARM_TRUSTED_FIRMWARE || \
 		!BR2_TARGET_UBOOT
 

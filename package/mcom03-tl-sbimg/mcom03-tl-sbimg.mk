@@ -11,7 +11,7 @@ MCOM03_TL_SBIMG_SITE_METHOD = git
 MCOM03_TL_SBIMG_BUILD_ID = $(call qstrip,$(BUILD_ID))
 
 MCOM03_TL_SBIMG_DEPENDENCIES = host-bootrom-tools \
-	ddrinit mcom03-sbl mcom03-sbl-tl arm-trusted-firmware uboot
+	ddrinit mcom03-sbl arm-trusted-firmware uboot
 
 MCOM03_TL_SBIMG_INSTALL_TARGET = NO
 MCOM03_TL_SBIMG_INSTALL_IMAGES = YES
