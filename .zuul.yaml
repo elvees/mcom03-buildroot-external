@@ -10,7 +10,6 @@
               - fragments/nn-dev.fragment
               - fragments/private.fragment$
               - fragments/tl.fragment$
-              - fragments/weston.fragment$
               - package/mcom03-tl-.*
               - README.rst$
         - mcom03-linux510-priv-buildroot-build:
@@ -23,11 +22,6 @@
         - mcom03-linux510-cv-buildroot-build:
             files:
               - fragments/cv.fragment$
-        - mcom03-weston-buildroot-build:
-            files:
-              - .*-rogue-.*
-              - fragments/private.fragment$
-              - fragments/weston.fragment$
         - mcom03-nn-dev-buildroot-build:
             files:
               - fragments/nn-dev.fragment
