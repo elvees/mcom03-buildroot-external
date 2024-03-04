@@ -65,7 +65,7 @@ define MCOM03_VPU_LIBS_INSTALL_TARGET_CMDS
 	$(INSTALL) -Dm0755 $(MCOM03_VPU_LIBS_FILES_LIB) $(TARGET_DIR)/usr/lib/
 	$(INSTALL) -Dm0755 $(MCOM03_VPU_LIBS_FILES_BIN) $(TARGET_DIR)/usr/bin/
 	# For OpenMAX support in FFmpeg and VLC:
-	ln -s libmveomx.so.0.1 $(TARGET_DIR)/usr/lib/libOMX_Core.so
+	ln -sf libmveomx.so.0.1 $(TARGET_DIR)/usr/lib/libOMX_Core.so
 endef
 
 define MCOM03_VPU_LIBS_INSTALL_IMAGES_CMDS
@@ -93,7 +93,7 @@ define MCOM03_VPU_LIBS_INSTALL_TARGET_CMDS
 	cp -dpfr $(@D)/target/* $(TARGET_DIR)
 	cp -dpfr $(@D)/staging/* $(STAGING_DIR)
 	# For OpenMAX support in FFmpeg and VLC:
-	ln -s libmveomx.so.0.1 $(TARGET_DIR)/usr/lib/libOMX_Core.so
+	ln -sf libmveomx.so.0.1 $(TARGET_DIR)/usr/lib/libOMX_Core.so
 endef
 
 endif
