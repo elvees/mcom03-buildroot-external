@@ -9,3 +9,13 @@ config BR2_PACKAGE_MCOM03_SBL
 comment "MCom-03 SBL needs ddrinit, TF-A and U-Boot to be built"
 	depends on !BR2_PACKAGE_DDRINIT || !BR2_TARGET_ARM_TRUSTED_FIRMWARE || \
 	!BR2_TARGET_UBOOT_INSTALL_DTB
+
+if BR2_PACKAGE_MCOM03_SBL
+
+config BR2_PACKAGE_MCOM03_SBL_ADDITIONAL_VARIABLES
+	string "Additional sbl build variables"
+	help
+	  Additional parameters for the sbl build
+	  E.G. '-DWDT_ENABLE=y -DDEBUG=y'
+
+endif
