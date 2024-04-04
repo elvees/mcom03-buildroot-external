@@ -17,6 +17,7 @@ elvmc03smarc-r2.7.1:mcom03-elvmc03smarc-r2.7.1-thincb4-r1.0.0
 egwpm:mcom03-egwpm-r1.0-egwcb-r1.0
 mcom03bub:mcom03-bub-r1.3.0
 monoboard-r1.1.1:mcom03-monoboard-r1.1.1
+pico-itx-r2:mcom03-pico-itx-r2
 skifmp-v1.0:mcom03-skifmp-v1.0
 trustphonepm:mcom03-trustphonepm-r1.5-trustphonecb-r1.1
 trustphonepm:mcom03-trustphonepm-r2.1-trustphonecb-r2.0
