@@ -3,3 +3,7 @@ config BR2_PACKAGE_MCOM03_LINUX_UTILS
 	select BR2_PACKAGE_MPV
 	help
 	  Miscellaneous utilities for MCom-03
+
+config BR2_PACKAGE_MCOM03_LINUX_UTILS_SET_HOSTNAME_SERVICE
+	bool "Enable mcom03-set-hostname service"
+	depends on BR2_PACKAGE_MCOM03_LINUX_UTILS
