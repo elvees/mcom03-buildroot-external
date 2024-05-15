@@ -25,6 +25,9 @@
         - mcom03-nn-dev-buildroot-build:
             files:
               - fragments/nn-dev.fragment
+        - mcom03-qt-buildroot-build:
+            files:
+              - fragments/qt.fragment
         - pre-commit
         - mcom03-sbl-build:
             files:
