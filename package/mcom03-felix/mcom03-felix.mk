@@ -4,6 +4,13 @@
 #
 ################################################################################
 
+# Force build from sources if override srcdir is enabled
+ifneq ($(MCOM03_FELIX_OVERRIDE_SRCDIR),)
+MCOM03_FELIX_INSTALL_SRC = y
+else
+MCOM03_FELIX_INSTALL_SRC = $(BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC)
+endif
+
 MCOM03_FELIX_DEPENDENCIES = linux sensor-phy
 
 MCOM03_FELIX_LINUX_ID = $(call qstrip,$(BR2_PACKAGE_MCOM03_FELIX_LINUX_VERSION))
