@@ -2,7 +2,7 @@ config BR2_PACKAGE_MCOM03_FELIX
 	bool "mcom03-felix"
 	depends on BR2_LINUX_KERNEL
 	select BR2_PACKAGE_LIBGPIOD
-	select BR2_PACKAGE_MCOM03_SENSOR_PHY
+	select BR2_PACKAGE_SENSOR_PHY
 	help
 	  Build kernel driver, libraries and test
 	  applications for PowerVR V2505 ISP.

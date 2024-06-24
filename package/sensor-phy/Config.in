@@ -1,4 +1,4 @@
-config BR2_PACKAGE_MCOM03_SENSOR_PHY
+config BR2_PACKAGE_SENSOR_PHY
 	bool "Sensor-phy"
 	depends on BR2_LINUX_KERNEL
 	help
