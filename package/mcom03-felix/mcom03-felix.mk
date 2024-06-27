@@ -7,8 +7,10 @@
 # Force build from sources if override srcdir is enabled
 ifneq ($(MCOM03_FELIX_OVERRIDE_SRCDIR),)
 MCOM03_FELIX_INSTALL_SRC = y
+MCOM03_FELIX_GIT_DIR = $(MCOM03_FELIX_OVERRIDE_SRCDIR)
 else
 MCOM03_FELIX_INSTALL_SRC = $(BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC)
+MCOM03_FELIX_GIT_DIR = $(MCOM03_FELIX_DL_DIR)/git
 endif
 
 MCOM03_FELIX_DEPENDENCIES = linux sensor-phy
@@ -21,7 +23,7 @@ endif
 endif
 
 # Installation from source code
-ifeq ($(BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC),y)
+ifeq ($(MCOM03_FELIX_INSTALL_SRC),y)
 MCOM03_FELIX_VERSION = master
 MCOM03_FELIX_SITE_METHOD = git
 MCOM03_FELIX_SITE = ssh://gerrit.elvees.com:29418/mcom03/felix
@@ -175,11 +177,6 @@ define MCOM03_FELIX_INSTALL_TARGET_CMDS
 	$(MCOM03_FELIX_BOARDCFG_INSTALL)
 endef
 
-ifneq ($(MCOM03_FELIX_OVERRIDE_SRCDIR),)
-MCOM03_FELIX_GIT_DIR = $(MCOM03_FELIX_OVERRIDE_SRCDIR)
-else
-MCOM03_FELIX_GIT_DIR = $(MCOM03_FELIX_DL_DIR)/git
-endif
 MCOM03_FELIX_BIN_VERSION = $(shell date +%Y%m%d)-$(shell git -C $(MCOM03_FELIX_GIT_DIR) describe --always || echo "unknown")
 
 # Create tarball with binaries
