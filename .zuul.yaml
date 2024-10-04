@@ -28,6 +28,14 @@
         - mcom03-qt-buildroot-build:
             files:
               - fragments/qt.fragment
+        - mcom03-linux66-priv-buildroot-build:
+            files:
+              - .*-felix.*
+              - .*-rogue-.*
+              - .*-vpu-.*
+              - configs/mcom03_defconfig$
+              - fragments/linux66.fragment$
+              - fragments/private.fragment$
         - pre-commit
         - mcom03-sbl-build:
             files:
