@@ -24,6 +24,8 @@ elvmc03smarc-r2.7.1:mcom03-elvmc03smarc-r2.7.1-smarccommoncb-r1.0
 elvmc03smarc-r2.7.1:mcom03-elvmc03smarc-r2.7.1-thincb4-r1.0.0
 elvmc03smarc-r2.9.1:mcom03-elvmc03smarc-r2.9.1-elvsmarccb-r3.3.0
 elvmc03smarc-r2.9.1:mcom03-elvmc03smarc-r2.9.1-smarccommoncb-r1.0
+elvmc03smarc-r2.11.0:mcom03-elvmc03smarc-r2.11.0-elvsmarccb-r3.3.0
+elvmc03smarc-r2.11.0:mcom03-elvmc03smarc-r2.11.0-smarccommoncb-r1.0
 mcom03bub:mcom03-mcom03bub-r1.3.0
 monoboard-r1.1.1:mcom03-monoboard-r1.1.1
 monoboard-r1.2.2:mcom03-monoboard-r1.2.2
