@@ -20,6 +20,7 @@ elvmc03smarc-r2.2.0:mcom03-elvmc03smarc-r2.2.0-smarccommoncb-r1.0
 elvmc03smarc-r2.6.1:mcom03-elvmc03smarc-r2.6.1-elvsmarccb-r2.10.3
 elvmc03smarc-r2.6.1:mcom03-elvmc03smarc-r2.6.1-elvsmarccb-r3.1.0
 elvmc03smarc-r2.6.1:mcom03-elvmc03smarc-r2.6.1-smarccommoncb-r1.0
+elvmc03smarc-r2.7.1:mcom03-elvmc03smarc-r2.7.1-elvapkskifii-r1.1.1
 elvmc03smarc-r2.7.1:mcom03-elvmc03smarc-r2.7.1-elvsmarccb-r3.2.1
 elvmc03smarc-r2.7.1:mcom03-elvmc03smarc-r2.7.1-smarccommoncb-r1.0
 elvmc03smarc-r2.7.1:mcom03-elvmc03smarc-r2.7.1-thincb4-r1.0.0
