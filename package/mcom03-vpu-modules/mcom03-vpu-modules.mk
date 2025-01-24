@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_VPU_MODULES_VERSION = master
+MCOM03_VPU_MODULES_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_VPU_MODULES_VERSION))
 MCOM03_VPU_MODULES_SITE = ssh://gerrit.elvees.com:29418/mcom03/vpu-modules
 MCOM03_VPU_MODULES_SITE_METHOD = git
 MCOM03_VPU_MODULES_LICENSE = GPL-2

@@ -5,6 +5,12 @@ config BR2_PACKAGE_MCOM03_VPU_MODULES
 
 if BR2_PACKAGE_MCOM03_VPU_MODULES
 
+config BR2_PACKAGE_MCOM03_VPU_MODULES_VERSION
+	string "version"
+	default "master"
+	help
+	  Version of VPU driver
+
 config BR2_PACKAGE_MCOM03_VPU_MODULES_DEBUG
 	bool "driver debug"
 	help
