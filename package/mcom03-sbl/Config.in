@@ -12,6 +12,11 @@ comment "MCom-03 SBL needs ddrinit, TF-A and U-Boot to be built"
 
 if BR2_PACKAGE_MCOM03_SBL
 
+config BR2_PACKAGE_MCOM03_SBL_RECOVERY_ENABLE
+	bool "Enable recovery"
+	help
+	  Allow to load recovery image
+
 config BR2_PACKAGE_MCOM03_SBL_ADDITIONAL_VARIABLES
 	string "Additional sbl build variables"
 	help
