@@ -1,0 +1,8 @@
+BR2_LINUX_KERNEL_INTREE_DTS_NAME="elvees/mcom03r-* elvees/overlays/*"
+BR2_LINUX_KERNEL_CONFIG_FRAGMENT_FILES="${BR2_EXTERNAL_MCOM03_PATH}/board/elvees/linux-research-freq.config"
+BR2_LINUX_KERNEL_DTB_OVERLAY_SUPPORT=y
+BR2_PACKAGE_ELVEES_GLBENCH=y
+BR2_PACKAGE_MCOM03_ROGUE_MODULES_DEVFREQ_PARENT=y
+BR2_PACKAGE_MCOM03_VPU_MODULES_DEVFREQ_PARENT=y
+BR2_ROOTFS_POST_FAKEROOT_SCRIPT="${BR2_EXTERNAL_MCOM03_PATH}/board/elvees/post-fakeroot.sh"
+BR2_ROOTFS_POST_SCRIPT_ARGS="-a /usr/corpneo/projects/mcom03-vpu/ducks_take_off_2160p50.yuv:/usr/corpneo/projects/mcom03-gpu/glbench_checksum"
