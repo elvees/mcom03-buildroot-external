@@ -44,6 +44,6 @@
     # Feel free to edit jobs below
     experimental:
       jobs:
-        - ecam03-buildroot-build
-        - ecam03-dev-buildroot-build
-        - iqcam-buildroot-build
+        - mcom03-linux510-cv-buildroot-build
+        - mcom03-linux510-cv-analytics-tests:
+            dependencies: mcom03-linux510-cv-buildroot-build
