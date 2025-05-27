@@ -39,3 +39,4 @@ pico-itx-r2:mcom03-pico-itx-r2
 skifmp-v1.0:mcom03-skifmp-v1.0
 trustphonepm:mcom03-trustphonepm-r1.5-trustphonecb-r1.1
 trustphonepm:mcom03-trustphonepm-r2.1-trustphonecb-r2.0
+mcom03-ip-ku-m1-r1.0:mcom03-ip-ku-m1-r1.0
