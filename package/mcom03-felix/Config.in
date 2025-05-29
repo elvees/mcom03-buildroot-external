@@ -9,10 +9,19 @@ config BR2_PACKAGE_MCOM03_FELIX
 
 if BR2_PACKAGE_MCOM03_FELIX
 
-menuconfig BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC
-	bool "Build from source code"
+config BR2_PACKAGE_MCOM03_FELIX_LINUX_VERSION
+	string "Linux kernel version for Felix"
+	help
+	  The Linux version for which Felix library will be exported
+	  or imported.
 
-if BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC
+config BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC
+	bool "Build from source"
+	help
+	  Build mcom03-felix package from the source code.
+
+comment "The options below have no effect unless \"Build from source\" or OVERRIDE_SRCDIR"
+	depends on !BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC
 
 comment "mcom03-dmabuf-exporter is required for dmabuf support"
 	depends on !BR2_PACKAGE_MCOM03_DMABUF_EXPORTER
@@ -90,12 +99,5 @@ config BR2_PACKAGE_MCOM03_FELIX_SENSOR_PARAXDMA_LINUX
 	bool "PARAXDMA support"
 	help
 	  Support PARAXDMA sensor on HAPS
-endif
-
-config BR2_PACKAGE_MCOM03_FELIX_LINUX_VERSION
-	string "Linux kernel version for Felix"
-	help
-	  The Linux version for which Felix library will be exported
-	  or imported
 
 endif
