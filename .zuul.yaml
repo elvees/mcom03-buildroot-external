@@ -9,7 +9,6 @@
               - fragments/hpc.fragment
               - fragments/nn-dev.fragment
               - fragments/private.fragment$
-              - fragments/tl.fragment$
               - package/mcom03-tl-.*
               - README.rst$
         - mcom03-linux510-priv-buildroot-build:

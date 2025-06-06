@@ -22,11 +22,11 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_REPO_VERSION
 	  Revision to use in the typical format used by Git
 	  E.G. a sha id, a tag, ..
 
-config BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_URL
-	string "URL to tar with certificates"
+config BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_TAR
+	string "PATH to the archive with certificates"
 	help
-	  Link to certificates required for making signed
-	  and encrypted SBIMG.
+	  PATH to TAR archive with certificates that are required
+	  for making signed and encrypted SBIMG.
 
 config BR2_PACKAGE_MCOM03_TL_SBIMG_MAKE_RECOVERY
 	bool "Make recovery SBIMG"
