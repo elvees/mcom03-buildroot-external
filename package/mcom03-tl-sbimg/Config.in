@@ -22,23 +22,10 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_REPO_VERSION
 	  Revision to use in the typical format used by Git
 	  E.G. a sha id, a tag, ..
 
-config BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_TAR
-	string "PATH to the archive with certificates"
-	help
-	  PATH to TAR archive with certificates that are required
-	  for making signed and encrypted SBIMG.
-
 config BR2_PACKAGE_MCOM03_TL_SBIMG_MAKE_RECOVERY
 	bool "Make recovery SBIMG"
 	help
 	  Only make recovery SBIMG.
-
-config BR2_PACKAGE_MCOM03_TL_SBIMG_IMG_ALIGN
-	int
-	default 16
-	help
-	  The alignment is required in case of sign
-	  or enc type of SBIMG.
 
 choice
 	prompt "Select the type of security of SBIMG"
@@ -54,12 +41,35 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN
 	help
 	  Make SBIMG with signed binary components.
 
+config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
+	bool "none"
+	help
+	  Make SBIMG with binary components only.
+
 endchoice
 
 config BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE
 	string
-	default "enc"	if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
-	default "sign"  if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN
+	default "enc"  if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
+	default "sign" if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN
+	default "none" if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_NONE
+
+if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_SIGN || BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_CERTS_TAR
+	string "PATH to the archive with certificates"
+	help
+	  PATH to TAR archive with certificates that are required
+	  for making signed and encrypted SBIMG.
+
+config BR2_PACKAGE_MCOM03_TL_SBIMG_IMG_ALIGN
+	int
+	default 16
+	help
+	  The alignment is required in case of sign
+	  or enc type of SBIMG.
+
+endif
 
 if BR2_PACKAGE_MCOM03_TL_SBIMG_SEC_TYPE_ENC
 
