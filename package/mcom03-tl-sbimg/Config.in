@@ -33,6 +33,13 @@ config BR2_PACKAGE_MCOM03_TL_SBIMG_MAKE_RECOVERY
 	help
 	  Only make recovery SBIMG.
 
+config BR2_PACKAGE_MCOM03_TL_SBIMG_IMG_ALIGN
+	int
+	default 16
+	help
+	  The alignment is required in case of sign
+	  or enc type of SBIMG.
+
 choice
 	prompt "Select the type of security of SBIMG"
 
