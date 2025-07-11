@@ -1,5 +1,13 @@
 config BR2_PACKAGE_MCOM03_LINUX_UTILS_PYTHON
 	bool "mcom03-linux-utils-python"
+	select BR2_PACKAGE_PYTHON3
+	help
+	  Miscellaneous python utilities for MCom-03
+
+config BR2_PACKAGE_MCOM03_LINUX_UTILS_PYTHON_INSTALL_LAW_RECORDER_DEPS
+	bool "Install dependencies of law-recorder.py utility"
+	default y
+	depends on BR2_PACKAGE_MCOM03_LINUX_UTILS_PYTHON
 	select BR2_PACKAGE_ALSA_UTILS
 	select BR2_PACKAGE_ALSA_UTILS_APLAY
 	select BR2_PACKAGE_FFMPEG
@@ -12,6 +20,3 @@ config BR2_PACKAGE_MCOM03_LINUX_UTILS_PYTHON
 	select BR2_PACKAGE_GST1_PLUGINS_GOOD
 	select BR2_PACKAGE_GST1_PLUGINS_GOOD_PLUGIN_LAW
 	select BR2_PACKAGE_GST1_PLUGINS_GOOD_PLUGIN_WAVENC
-	select BR2_PACKAGE_PYTHON3
-	help
-	  Miscellaneous python utilities for MCom-03
