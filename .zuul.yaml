@@ -28,6 +28,9 @@
               - configs/mcom03_defconfig$
               - fragments/linux66.fragment$
               - fragments/private.fragment$
+        - mcom03fc-priv-buildroot-build:
+            files:
+              - .*mcom03fc.*
         - pre-commit
         - mcom03-sbl-build:
             files:
