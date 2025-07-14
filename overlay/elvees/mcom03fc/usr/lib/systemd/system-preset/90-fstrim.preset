@@ -1,0 +1,2 @@
+disable fstrim.service
+disable fstrim.timer
