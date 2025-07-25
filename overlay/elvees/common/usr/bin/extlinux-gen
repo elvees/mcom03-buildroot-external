@@ -9,10 +9,7 @@
 [[ -v CONSOLE ]] || CONSOLE=ttyS0,115200n8
 
 if [[ ! -v CMDLINE ]]; then
-    # Mostly we use USB flash drives and solid-state drives to store rootfs.
-    # The ext2 is recommended over journaling file systems on the such drivers.
-    # The ext2 performs fewer writes than ext4 because there is no journaling.
-    CMDLINE="${CONSOLE:+console=$CONSOLE} earlycon ${ROOT:+root=$ROOT rootfstype=ext2 rw,noauto rootwait}"
+    CMDLINE="${CONSOLE:+console=$CONSOLE} earlycon ${ROOT:+root=$ROOT rootfstype=ext4 rw rootwait}"
 fi
 
 if [[ -v FDT ]]; then
