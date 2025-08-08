@@ -11,6 +11,15 @@
               - fragments/private.fragment$
               - package/mcom03-tl-.*
               - README.rst$
+        - mcom03r-linux66-buildroot-build:
+            irrelevant-files:
+              - .pre-commit-config.yaml$
+              - fragments/cv.fragment$
+              - fragments/hpc.fragment
+              - fragments/nn-dev.fragment
+              - fragments/private.fragment$
+              - package/mcom03-tl-.*
+              - README.rst$
         - mcom03-cv-buildroot-build:
             files:
               - fragments/cv.fragment$
@@ -28,9 +37,16 @@
               - configs/mcom03_defconfig$
               - fragments/linux66.fragment$
               - fragments/private.fragment$
-        - mcom03fc-priv-buildroot-build:
+        - mcom03r-linux66-priv-buildroot-build:
             files:
-              - .*mcom03fc.*
+              - .*-felix.*
+              - .*-rogue-.*
+              - .*-vpu-.*
+              - configs/mcom03r_defconfig$
+              - fragments/private.fragment$
+        - mcom03r-fc-priv-buildroot-build:
+            files:
+              - .*mcom03r-fc.*
         - pre-commit
         - mcom03-sbl-build:
             files:
