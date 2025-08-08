@@ -34,7 +34,8 @@
         - pre-commit
         - mcom03-sbl-build:
             files:
-              - board/elvees/ddrinit-dtb-map.txt$
+              - board/elvees/mcom03-ddrinit-dtb-map.txt$
+              - board/elvees/mcom03r-ddrinit-dtb-map.txt$
 
     # Feel free to edit jobs below
     experimental:
