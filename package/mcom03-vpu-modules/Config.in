@@ -21,6 +21,12 @@ config BR2_PACKAGE_MCOM03_VPU_MODULES_DISABLE_WDOG
 	help
 	  Disable the watchdog that detects frozen video sessions.
 
+config BR2_PACKAGE_MCOM03_VPU_MODULES_DEVFREQ_PARENT
+	bool "control VPU clock via PLL"
+	help
+	  Enable VPU clock control via PLL. Used for debugging
+	  purposes.
+
 choice
 	prompt "Choose power saving mode"
 config BR2_PACKAGE_MCOM03_VPU_MODULES_DVFS
