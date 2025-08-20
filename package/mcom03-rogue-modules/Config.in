@@ -15,4 +15,10 @@ config BR2_PACKAGE_MCOM03_ROGUE_MODULES_PDUMP
 	help
 	  PDump is used for snapshoting and playing back the
 	  applications.
+
+config BR2_PACKAGE_MCOM03_ROGUE_MODULES_DEVFREQ_PARENT
+	bool "control GPU clock via PLL"
+	help
+	  Enable GPU clock control via PLL. Used for debugging
+	  purposes.
 endif
