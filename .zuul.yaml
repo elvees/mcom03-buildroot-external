@@ -1,7 +1,6 @@
----
 - project:
     check:
-      jobs:
+      jobs: &check-jobs
         - mcom03-linux66-buildroot-build:
             irrelevant-files:
               - .pre-commit-config.yaml$
@@ -52,6 +51,8 @@
             files:
               - board/elvees/mcom03-ddrinit-dtb-map.txt$
               - board/elvees/mcom03r-ddrinit-dtb-map.txt$
+    gate:
+      jobs: *check-jobs
 
     # Feel free to edit jobs below
     experimental:
