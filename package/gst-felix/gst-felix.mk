@@ -19,7 +19,10 @@ GST_FELIX_CONF_OPTS += -DFELIX_SOURCE_DIR=$(MCOM03_FELIX_DIR)/DDKSource
 GST_FELIX_CONF_OPTS += -DFELIX_BINARY_DIR=$(MCOM03_FELIX_BUILDDIR)
 GST_FELIX_CONF_OPTS += -DPAGE_SIZE_16K=$(shell grep -wc 'CONFIG_PAGE_SIZE_16KB=y' $(LINUX_DIR)/.config)
 
-GST_FELIX_TARGET_FILES = lib/gstreamer-1.0/libfelixsrc.so
+GST_FELIX_TARGET_FILES = \
+	lib/gstreamer-1.0/libfelixsrc.so \
+	lib/libgstfelixmeta.so \
+	usr/include/gstreamer-1.0/gst/gstfelixmeta.h
 
 ifeq ($(BR2_PACKAGE_LENSCONTROL_GST_LENSCONTROL),y)
 GST_FELIX_DEPENDENCIES += lenscontrol
