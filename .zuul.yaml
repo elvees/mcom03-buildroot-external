@@ -51,12 +51,14 @@
             files:
               - board/elvees/mcom03-ddrinit-dtb-map.txt$
               - board/elvees/mcom03r-ddrinit-dtb-map.txt$
+        - mcom03r-linux66-priv-coverage-buildroot-build:
+            files: [.*gcov.*]
     gate:
       jobs: *check-jobs
 
     # Feel free to edit jobs below
     experimental:
       jobs:
-        - mcom03-cv-buildroot-build
-        - mcom03-cv-analytics-tests:
-            dependencies: mcom03-cv-buildroot-build
+        - mcom03r-linux66-buildroot-build:
+            vars:
+              fragments: gcov
