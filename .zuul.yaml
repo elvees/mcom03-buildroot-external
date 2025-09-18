@@ -25,7 +25,7 @@
         - mcom03-nn-dev-buildroot-build:
             files:
               - fragments/nn-dev.fragment
-        - mcom03-qt-buildroot-build:
+        - mcom03r-linux66-qt-buildroot-build:
             files:
               - fragments/qt.fragment
         - mcom03-linux66-priv-buildroot-build:
