@@ -46,6 +46,9 @@
         - mcom03r-fc-priv-buildroot-build:
             files:
               - .*mcom03r-fc.*
+        - mcom03r-smarc-fc-buildroot-build:
+            files:
+              - configs/mcom03r_smarcr3-fc_defconfig$
         - pre-commit
         - mcom03-sbl-build:
             files:
