@@ -13,9 +13,70 @@ comment "MCom-03 SBL needs ddrinit, TF-A and U-Boot to be built"
 if BR2_PACKAGE_MCOM03_SBL
 
 config BR2_PACKAGE_MCOM03_SBL_RECOVERY_ENABLE
-	bool "Enable recovery"
+	bool "Enable recovery support"
 	help
 	  Allow to load recovery image
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_MAKE_RECOVERY
+	bool "Make recovery SBIMG"
+	help
+	  Only make recovery SBIMG.
+
+choice
+	prompt "Select the type of security of SBIMG"
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_ENC
+	bool "enc+sign"
+	help
+	  Make SBIMG with signed and encrypted binary
+	  components.
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_SIGN
+	bool "sign"
+	help
+	  Make SBIMG with signed binary components.
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_NONE
+	bool "none"
+	help
+	  Make SBIMG with binary components only.
+
+endchoice
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE
+	string
+	default "enc"  if BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_ENC
+	default "sign" if BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_SIGN
+	default "none" if BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_NONE
+
+if BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_SIGN || BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_ENC
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_CERTS_TAR
+	string "PATH to the archive with certificates"
+	help
+	  PATH to TAR archive with certificates that are required
+	  for making signed and encrypted SBIMG.
+
+endif
+
+if BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_ENC
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_ENC_DSN
+	string "DSN"
+	help
+	  Device Serial Number (32 бита) <0x...>
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_ENC_DUK
+	string "DUK"
+	help
+	  Device Unique Key (128 бит) <0x...>
+
+config BR2_PACKAGE_MCOM03_SBL_SBIMG_ENC_KEY
+	string "Encryption Key"
+	help
+	  Encryption Key (128 бит) <0x...>
+
+endif
 
 config BR2_PACKAGE_MCOM03_SBL_ADDITIONAL_VARIABLES
 	string "Additional sbl build variables"

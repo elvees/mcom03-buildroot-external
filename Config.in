@@ -6,7 +6,6 @@ if BR2_aarch64
 source "$BR2_EXTERNAL_MCOM03_PATH/package/bootrom-tools/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-baremetal-tools/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl/Config.in"
-source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-tl-sbimg/Config.in"
 
 config BR2_MCOM03_DDRINIT_DTB_MAP
 	string "List of ddrinit-dtb pairs"
