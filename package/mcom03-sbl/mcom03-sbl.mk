@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-MCOM03_SBL_VERSION = master
+MCOM03_SBL_VERSION = $(call qstrip,$(BR2_PACKAGE_MCOM03_SBL_REPO_VERSION))
 MCOM03_SBL_SITE = ssh://gerrit.elvees.com:29418/mcom03/sbl
 MCOM03_SBL_SITE_METHOD = git
 MCOM03_SBL_LICENSE = GPLv2

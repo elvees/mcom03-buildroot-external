@@ -12,6 +12,13 @@ comment "MCom-03 SBL needs ddrinit, TF-A and U-Boot to be built"
 
 if BR2_PACKAGE_MCOM03_SBL
 
+config BR2_PACKAGE_MCOM03_SBL_REPO_VERSION
+	string "Repository version"
+	default master
+	help
+	  Revision to use in the typical format used by Git
+	  E.G. a sha id, a tag, ..
+
 config BR2_PACKAGE_MCOM03_SBL_RECOVERY_ENABLE
 	bool "Enable recovery support"
 	help
