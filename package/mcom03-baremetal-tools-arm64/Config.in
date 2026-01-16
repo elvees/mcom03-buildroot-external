@@ -1,0 +1,5 @@
+config BR2_PACKAGE_MCOM03_BAREMETAL_TOOLS_ARM64
+	bool "mcom03-baremetal-tools-arm64"
+	help
+	  Baremetal samples and tools suitable for
+	  running on an ARM64 CPU of MCom-03 SoC.
