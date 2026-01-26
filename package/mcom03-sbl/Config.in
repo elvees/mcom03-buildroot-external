@@ -59,7 +59,8 @@ config BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE
 if BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_SIGN || BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_ENC
 
 config BR2_PACKAGE_MCOM03_SBL_SBIMG_CERTS_TAR
-	string "PATH to the archive with certificates"
+	string "PATH to the archive with SBIMG certificates"
+	default "$(BR2_EXTERNAL_MCOM03_PATH)/board/elvees/sbl-sbimg-certs.tar.gz"
 	help
 	  PATH to TAR archive with certificates that are required
 	  for making signed and encrypted SBIMG.
