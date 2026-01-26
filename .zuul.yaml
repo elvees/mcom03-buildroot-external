@@ -62,6 +62,4 @@
     # Feel free to edit jobs below
     experimental:
       jobs:
-        - mcom03r-linux66-buildroot-build:
-            vars:
-              fragments: gcov
+        - mcom03r-fc-priv-buildroot-build
