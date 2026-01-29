@@ -17,6 +17,8 @@ elvmc03smarc-r1.0:mcom03-elvmc03smarc-r1.0-elvsmarccb-r3.3.0
 elvmc03smarc-r1.0:mcom03-elvmc03smarc-r1.0-ngfwcb-r1.0
 elvmc03smarc-r1.0:mcom03-elvmc03smarc-r1.0-rockpi-n10
 elvmc03smarc-r1.0:mcom03-elvmc03smarc-r1.0-smarccommoncb-r1.0
+elvmc03smarc-r1.0:mcom03-elvmc03smarc-r1.0-bmc-multicluster-r2.2
+elvmc03smarc-r1.0:mcom03-elvmc03smarc-r1.0-unit-multicluster-r2.2
 elvmc03smarc-r2.2.0:mcom03-elvmc03smarc-r2.2.0-elvsmarccb-r2.9.1
 elvmc03smarc-r2.2.0:mcom03-elvmc03smarc-r2.2.0-smarccommoncb-r1.0
 elvmc03smarc-r2.6.1:mcom03-elvmc03smarc-r2.6.1-elvsmarccb-r2.10.3
