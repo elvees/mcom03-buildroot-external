@@ -65,6 +65,31 @@ config BR2_PACKAGE_MCOM03_SBL_SBIMG_CERTS_TAR
 	  PATH to TAR archive with certificates that are required
 	  for making signed and encrypted SBIMG.
 
+config BR2_PACKAGE_MCOM03_SBL_FIT_CERTS_TAR
+	string "PATH to the archive with FIT keys and certificates"
+	default "$(BR2_EXTERNAL_MCOM03_PATH)/board/elvees/uboot-fit-certs.tar.gz"
+	help
+	  PATH to TAR archive with certificates that are required
+	  for making signed FIT.
+
+config BR2_PACKAGE_MCOM03_SBL_FIT_KEY_NAME
+	string "The key name"
+	default "root"
+	help
+	  This defines a private key file <key_name>.key for use
+	  with signing, and a certificate <key_name>.crt (containing
+	  the public key) for use with verification. The name is the
+	  value of ‘key-name-hint’ property of the signature node in
+	  FIT configuration and when embedded it into U-Boot device
+	  tree.
+
+config BR2_PACKAGE_MCOM03_SBL_FIT_SIGN_ALGO
+	string "Signing algorithm name"
+	default "sha256,rsa3072"
+	help
+	  Supported algorithm and their value sizes see at:
+	  https://docs.u-boot.org/en/latest/usage/fit/source_file_format.html#fit-algorithm
+
 endif
 
 if BR2_PACKAGE_MCOM03_SBL_SBIMG_SEC_TYPE_ENC
