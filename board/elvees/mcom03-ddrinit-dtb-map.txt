@@ -39,5 +39,3 @@ pico-itx-r2:mcom03-pico-itx-r2
 skifmp-v1.0:mcom03-skifmp-v1.0
 skifmsb-v2.0:mcom03-skifmsb-v2.0-skifbs-v1.0
 skifmsb-v2.0:mcom03-skifmsb-v2.0-skifmp-v2.0
-trustphonepm-r1.5:mcom03-trustphonepm-r1.5-trustphonecb-r1.1
-trustphonepm-r1.5:mcom03-trustphonepm-r2.1-trustphonecb-r2.0
