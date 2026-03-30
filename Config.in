@@ -12,8 +12,12 @@ config BR2_MCOM03_DDRINIT_DTB_MAP
 	string "List of ddrinit-dtb pairs"
 	default "$(BR2_EXTERNAL_MCOM03_PATH)/board/elvees/mcom03-ddrinit-dtb-map.txt"
 	help
-	  List must have the following format:
-	  "ddrinit1:dtb1 ddrinit2:dtb2".
+	  Each entry in list corresponds to one SBL image. List entry
+	  specifies components for composing SBL image. List entry
+	  format:
+
+	    <ddrinit-defconfig>[,<ddrinit-fragment1>[,\
+	      <ddrinit-fragment2>[...]]:<uboot-dtb1>
 
 comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
 	depends on !BR2_LINUX_KERNEL
