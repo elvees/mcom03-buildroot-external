@@ -22,7 +22,7 @@
         - mcom03-cv-buildroot-build:
             files:
               - fragments/cv.fragment$
-        - mcom03-nn-dev-buildroot-build:
+        - mcom03-linux66-nn-dev-buildroot-build:
             files:
               - fragments/nn-dev.fragment
         - mcom03r-linux66-qt-buildroot-build:
