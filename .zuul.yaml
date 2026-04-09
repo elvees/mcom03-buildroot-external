@@ -28,6 +28,9 @@
         - mcom03r-linux66-qt-buildroot-build:
             files:
               - fragments/qt.fragment
+        - mcom03r-linux66-qt6-buildroot-build:
+            files:
+              - fragments/qt6.fragment
         - mcom03-linux66-priv-buildroot-build:
             files:
               - .*-felix.*
