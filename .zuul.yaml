@@ -54,6 +54,24 @@
               - board/elvees/mcom03r-ddrinit-dtb-map.txt$
         - mcom03r-linux66-priv-coverage-buildroot-build:
             files: [.*gcov]
+        - mcom03r-linux618-priv-buildroot-build:
+            files:
+              - .*-felix.*
+              - .*-rogue-.*
+              - .*-vpu-.*
+              - configs/mcom03r_defconfig$
+              - fragments/linux618.fragment$
+              - fragments/private.fragment$
+        - mcom03r-linux618-buildroot-build:
+            irrelevant-files:
+              - .pre-commit-config.yaml$
+              - configs/.*|fragments.*
+              - regex: configs/mcom03r_defconfig$
+                negate: true
+              - regex: fragments/(linux618|private).fragment$
+                negate: true
+              - package/mcom03-tl-
+              - README.rst$
     gate:
       jobs: *check-jobs
 
