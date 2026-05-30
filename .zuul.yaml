@@ -4,20 +4,16 @@
         - mcom03-linux66-buildroot-build:
             irrelevant-files:
               - .pre-commit-config.yaml$
-              - fragments/cv.fragment$
-              - fragments/hpc.fragment
-              - fragments/nn-dev.fragment
-              - fragments/private.fragment$
-              - package/mcom03-tl-.*
+              - configs/mcom03r
+              - fragments/
               - README.rst$
         - mcom03r-linux66-buildroot-build:
             irrelevant-files:
               - .pre-commit-config.yaml$
-              - fragments/cv.fragment$
-              - fragments/hpc.fragment
-              - fragments/nn-dev.fragment
-              - fragments/private.fragment$
-              - package/mcom03-tl-.*
+              - configs/
+              - regex: configs/mcom03r_defconfig$
+                negate: true
+              - fragments/
               - README.rst$
         - mcom03-cv-buildroot-build:
             files:
@@ -33,22 +29,21 @@
               - fragments/qt6.fragment
         - mcom03-linux66-priv-buildroot-build:
             files:
-              - .*-felix.*
-              - .*-rogue-.*
-              - .*-vpu-.*
+              - .*-felix
+              - .*-rogue-
+              - .*-vpu-
               - configs/mcom03_defconfig$
-              - fragments/linux66.fragment$
               - fragments/private.fragment$
         - mcom03r-linux66-priv-buildroot-build:
             files:
-              - .*-felix.*
-              - .*-rogue-.*
-              - .*-vpu-.*
+              - .*-felix
+              - .*-rogue-
+              - .*-vpu-
               - configs/mcom03r_defconfig$
               - fragments/private.fragment$
         - mcom03r-fc-priv-buildroot-build:
             files:
-              - .*mcom03r-fc.*
+              - .*mcom03r-fc
         - mcom03r-smarc-fc-buildroot-build:
             files:
               - configs/mcom03r_smarcr3-fc_defconfig$
@@ -58,7 +53,7 @@
               - board/elvees/mcom03-ddrinit-dtb-map.txt$
               - board/elvees/mcom03r-ddrinit-dtb-map.txt$
         - mcom03r-linux66-priv-coverage-buildroot-build:
-            files: [.*gcov.*]
+            files: [.*gcov]
     gate:
       jobs: *check-jobs
 
