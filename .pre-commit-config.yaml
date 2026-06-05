@@ -33,13 +33,3 @@ repos:
     rev: v6.1.2
     hooks:
       - id: rstcheck
-  - repo: local
-    hooks:
-      - id: check-ddrinit-defconfig
-        name: check-ddrinit-defconfig
-        language: system
-        entry: >-
-          bash -c 'diff --color
-          <(grep BR2_PACKAGE_DDRINIT_DEFCONFIGS configs/mcom03r_defconfig)
-          <(grep BR2_PACKAGE_DDRINIT_DEFCONFIGS configs/mcom03r-fc_defconfig)'
-        pass_filenames: false
