@@ -15,7 +15,7 @@
                 negate: true
               - fragments/
               - README.rst$
-        - mcom03-cv-buildroot-build:
+        - mcom03r-cv-buildroot-build:
             files:
               - fragments/cv.fragment$
         - mcom03-linux66-nn-dev-buildroot-build:
