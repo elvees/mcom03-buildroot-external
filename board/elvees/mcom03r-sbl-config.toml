@@ -1,0 +1,85 @@
+[[configs]]
+ddrinit_defconfig = "elvmc03ce-r3.2.0"
+uboot_dtb = "mcom03r-elvmc03ce-r3.2.0-elvcecb-r3.3.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "elvmc03q7-r3.3.0"
+uboot_dtb = "mcom03r-elvmc03q7-r3.3.0-elvq7cb-r3.3.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "elvmc03smarc-r3.0.0"
+uboot_dtb = "mcom03r-elvmc03smarc-r3.0.0-elvsmarccb-r3.3.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "elvmc03smarc-r3.0.0"
+uboot_dtb = "mcom03r-elvmc03smarc-r3.0.0-salute-pm-ett-ssmarc-r2.0.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "elvmc03smarc-r3.0.0"
+uboot_dtb = "mcom03r-elvmc03smarc-r3.0.0-smarccommoncb-r1.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "elvmc03smarc-r3.0.0"
+ddrinit_fragments = [ "pll-cfg-override", "lpddr4-rate-533",]
+uboot_dtb = "mcom03r-elvmc03smarc-r3.0.0-elvsmarccb-r3.3.0"
+boot_types = ["xip"]
+
+[[configs]]
+ddrinit_defconfig = "elvmc03smarc-r3.0.0"
+ddrinit_fragments = [ "pll-cfg-override", "lpddr4-rate-533",]
+uboot_dtb = "mcom03r-elvmc03smarc-r3.0.0-smarccommoncb-r1.0"
+boot_types = ["xip"]
+
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+uboot_dtb = "mcom03r-ip-ku-m1-r1.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+uboot_dtb = "mcom03r-ip-ku-m1-r1.1"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+ddrinit_fragments = [ "pll-cfg-override", "ddr4-rate-1250",]
+uboot_dtb = "mcom03r-ip-ku-m1-r1.0"
+boot_types = ["xip"]
+
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+ddrinit_fragments = [ "pll-cfg-override", "ddr4-rate-1250",]
+uboot_dtb = "mcom03r-ip-ku-m1-r1.1"
+boot_types = ["xip"]
+
+[[configs]]
+ddrinit_defconfig = "mcom03bub-r1.3.0"
+uboot_dtb = "mcom03r-mcom03bub-r1.3.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "skifmsb-v2.0"
+uboot_dtb = "mcom03r-skifmsb-v2.0-skifbs-v1.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "skifmsb-v2.0"
+uboot_dtb = "mcom03r-skifmsb-v2.0-skifmp-v2.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "skifmsb-v2.0"
+ddrinit_fragments = [ "pll-cfg-override", "lpddr4-rate-533",]
+uboot_dtb = "mcom03r-skifmsb-v2.0-skifbs-v1.0"
+boot_types = ["xip"]
+
+[[configs]]
+ddrinit_defconfig = "skifmsb-v2.0"
+ddrinit_fragments = [ "pll-cfg-override", "lpddr4-rate-533",]
+uboot_dtb = "mcom03r-skifmsb-v2.0-skifmp-v2.0"
+boot_types = ["xip"]

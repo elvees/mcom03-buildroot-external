@@ -1,0 +1,21 @@
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+uboot_dtb = "mcom03r-ip-ku-m1-r1.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+uboot_dtb = "mcom03r-ip-ku-m1-r1.1"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+ddrinit_fragments = [ "pll-cfg-override", "ddr4-rate-1250",]
+uboot_dtb = "mcom03r-ip-ku-m1-r1.0"
+boot_types = ["xip"]
+
+[[configs]]
+ddrinit_defconfig = "ip-ku-m1-r1.0"
+ddrinit_fragments = [ "pll-cfg-override", "ddr4-rate-1250",]
+uboot_dtb = "mcom03r-ip-ku-m1-r1.1"
+boot_types = ["xip"]

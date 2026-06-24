@@ -9,16 +9,21 @@ source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-baremetal-tools/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-baremetal-tools-arm64/Config.in"
 source "$BR2_EXTERNAL_MCOM03_PATH/package/mcom03-sbl/Config.in"
 
-config BR2_MCOM03_DDRINIT_DTB_MAP
-	string "List of ddrinit-dtb pairs"
-	default "$(BR2_EXTERNAL_MCOM03_PATH)/board/elvees/mcom03-ddrinit-dtb-map.txt"
+config BR2_MCOM03_SBL_CONFIG
+	string "SBL build configuration file"
+	default "$(BR2_EXTERNAL_MCOM03_PATH)/board/elvees/mcom03-sbl-config.toml"
 	help
-	  Each entry in list corresponds to one SBL image. List entry
-	  specifies components for composing SBL image. List entry
-	  format:
+	  Each element of the 'configs' array in the TOML file
+	  corresponds to one SBL image and specifies components
+	  for composing SBL image.
+	  Format:
 
-	    <ddrinit-defconfig>[,<ddrinit-fragment1>[,\
-	      <ddrinit-fragment2>[...]]:<uboot-dtb1>
+	  [[configs]]
+	  ddrinit_defconfig = <ddrinit-defconfig>
+	  ddrinit_fragments = [<ddrinit-fragment1>[,
+	                       <ddrinit-fragment2>[...]]]
+	  uboot_dtb = <uboot-dtb>
+	  boot_types = ["xip", "bootrom"]
 
 comment "MCom-03 support needs MCom-03-specific Linux kernel to be built"
 	depends on !BR2_LINUX_KERNEL

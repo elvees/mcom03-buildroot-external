@@ -50,8 +50,8 @@
         - pre-commit
         - mcom03-sbl-build:
             files:
-              - board/elvees/mcom03-ddrinit-dtb-map.txt$
-              - board/elvees/mcom03r-ddrinit-dtb-map.txt$
+              - board/elvees/mcom03-sbl-config.toml$
+              - board/elvees/mcom03r-sbl-config.toml$
         - mcom03r-linux66-priv-coverage-buildroot-build:
             files: [.*gcov]
         - mcom03r-linux618-priv-buildroot-build:
