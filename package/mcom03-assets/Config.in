@@ -1,0 +1,26 @@
+config BR2_PACKAGE_MCOM03_ASSETS
+	bool "mcom03-assets"
+	help
+	  A dummy package to download assets which are needed for
+	  testing and place them on the target
+
+	  The package is used instead of post-build script to make it
+	  possible to run the build without a network
+
+config BR2_PACKAGE_MCOM03_ASSETS_LISTING
+	string "Asset listing file"
+	help
+	  A path to a file with asset name listing. The names must be
+	  separated by line
+
+config BR2_PACKAGE_MCOM03_ASSETS_ORIGIN
+	string "Asset origin URL"
+	default "http://pdist.elvees.com/mcom03/assets"
+	help
+	  A root part of the URL to prefix each asset name with it
+
+config BR2_PACKAGE_MCOM03_ASSETS_TARGET
+	string "Target path"
+	default "/srv/assets"
+	help
+	  A path to a directory on the target to download the assets
