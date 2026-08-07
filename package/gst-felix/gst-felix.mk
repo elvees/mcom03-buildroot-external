@@ -7,10 +7,8 @@
 # Force build from sources if override srcdir is enabled
 ifneq ($(GST_FELIX_OVERRIDE_SRCDIR),)
 GST_FELIX_INSTALL_SRC = y
-GST_FELIX_GIT_DIR = $(GST_FELIX_OVERRIDE_SRCDIR)
 else
 GST_FELIX_INSTALL_SRC = $(BR2_PACKAGE_GST_FELIX_INSTALL_SRC)
-GST_FELIX_GIT_DIR = $(GST_FELIX_DL_DIR)/git
 endif
 
 GST_FELIX_DEPENDENCIES = gstreamer1 mcom03-dmabuf-exporter mcom03-felix
@@ -41,7 +39,7 @@ endif
 # Create tarball with binaries
 define GST_FELIX_INSTALL_IMAGES_CMDS
 	tar -C $(TARGET_DIR) -czf \
-		$(BINARIES_DIR)/$(call TARBALL_NAME,GST_FELIX).gz \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,gst-felix).gz \
 		$(GST_FELIX_TARGET_FILES)
 endef
 

@@ -7,10 +7,8 @@
 # Force build from sources if override srcdir is enabled
 ifneq ($(MCOM03_VPU_LIBS_OVERRIDE_SRCDIR),)
 MCOM03_VPU_LIBS_INSTALL_SRC = y
-MCOM03_VPU_LIBS_GIT_DIR = $(MCOM03_VPU_LIBS_OVERRIDE_SRCDIR)
 else
 MCOM03_VPU_LIBS_INSTALL_SRC = $(BR2_PACKAGE_MCOM03_VPU_LIBS_INSTALL_SRC)
-MCOM03_VPU_LIBS_GIT_DIR = $(MCOM03_VPU_LIBS_DL_DIR)/git
 endif
 
 # Installation from source code
@@ -70,12 +68,12 @@ endef
 
 define MCOM03_VPU_LIBS_INSTALL_IMAGES_CMDS
 	tar -C $(TARGET_DIR) -cf \
-		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_VPU_LIBS) \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,mcom03-vpu-libs) \
 		$(MCOM03_VPU_LIBS_TARGET_FILES) --transform 's,^,target/,'
 	tar -C $(STAGING_DIR) -rf \
-		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_VPU_LIBS) \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,mcom03-vpu-libs) \
 		usr/include/IL --transform 's,^,staging/,'
-	gzip -f $(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_VPU_LIBS)
+	gzip -f $(BINARIES_DIR)/$(call TARBALL_NAME,mcom03-vpu-libs)
 endef
 
 define MCOM03_VPU_LIBS_INSTALL_STAGING_CMDS

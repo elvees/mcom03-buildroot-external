@@ -7,10 +7,8 @@
 # Force build from sources if override srcdir is enabled
 ifneq ($(MCOM03_ROGUE_LIBS_OVERRIDE_SRCDIR),)
 MCOM03_ROGUE_LIBS_INSTALL_SRC = y
-MCOM03_ROGUE_LIBS_GIT_DIR = $(MCOM03_ROGUE_LIBS_OVERRIDE_SRCDIR)
 else
 MCOM03_ROGUE_LIBS_INSTALL_SRC = $(BR2_PACKAGE_MCOM03_ROGUE_LIBS_INSTALL_SRC)
-MCOM03_ROGUE_LIBS_GIT_DIR = $(MCOM03_ROGUE_LIBS_DL_DIR)/git
 endif
 
 MCOM03_ROGUE_LIBS_LICENSE = Proprietary
@@ -113,10 +111,10 @@ define MCOM03_ROGUE_LIBS_INSTALL_STAGING_CMDS
 
 	# Create tar with staging files
 	tar -C $(@D) -rf \
-		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS) \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,mcom03-rogue-libs) \
 		include/khronos --transform 's,^include/khronos,staging/usr/include,'
 	tar -C $(STAGING_DIR) -rf \
-		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS) \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,mcom03-rogue-libs) \
 		usr/lib/pkgconfig/glesv2.pc --transform 's,^,staging/,'
 endef
 
@@ -135,7 +133,7 @@ define MCOM03_ROGUE_LIBS_INSTALL_IMAGES_CMDS
 	rm $(MCOM03_ROGUE_LIBS_TARGET_FILES_DIR)/etc/init.d/rc.pvr
 
 	tar -C $(@D) -rf \
-		$(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS) \
+		$(BINARIES_DIR)/$(call TARBALL_NAME,mcom03-rogue-libs) \
 		binaries --transform 's,^binaries,target,'
 endef
 
@@ -145,7 +143,7 @@ define MCOM03_ROGUE_LIBS_REMOVE_INIT
 endef
 
 define MCOM03_ROGUE_LIBS_CREATE_TARBALL
-	gzip -f $(BINARIES_DIR)/$(call TARBALL_NAME,MCOM03_ROGUE_LIBS)
+	gzip -f $(BINARIES_DIR)/$(call TARBALL_NAME,mcom03-rogue-libs)
 endef
 
 MCOM03_ROGUE_LIBS_POST_INSTALL_TARGET_HOOKS += MCOM03_ROGUE_LIBS_REMOVE_INIT
