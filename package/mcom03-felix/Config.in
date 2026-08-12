@@ -17,6 +17,7 @@ config BR2_PACKAGE_MCOM03_FELIX_LINUX_VERSION
 
 config BR2_PACKAGE_MCOM03_FELIX_INSTALL_SRC
 	bool "Build from source"
+	select BR2_PACKAGE_GST_FELIX_INSTALL_SRC
 	help
 	  Build mcom03-felix package from the source code.
 
