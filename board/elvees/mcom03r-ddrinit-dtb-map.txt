@@ -1,4 +1,5 @@
 elvmc03smarc-r3.0.0:mcom03r-elvmc03smarc-r3.0.0-elvsmarccb-r3.3.0
+elvmc03smarc-r3.0.0:mcom03r-elvmc03smarc-r3.0.0-salute-pm-ett-ssmarc-r2.0.0
 elvmc03smarc-r3.0.0:mcom03r-elvmc03smarc-r3.0.0-smarccommoncb-r1.0
 ip-ku-m1-r1.0:mcom03r-ip-ku-m1-r1.0
 ip-ku-m1-r1.0:mcom03r-ip-ku-m1-r1.1
