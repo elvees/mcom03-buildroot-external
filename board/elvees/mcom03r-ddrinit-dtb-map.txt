@@ -4,6 +4,7 @@ elvmc03smarc-r3.0.0:mcom03r-elvmc03smarc-r3.0.0-salute-pm-ett-ssmarc-r2.0.0
 elvmc03smarc-r3.0.0:mcom03r-elvmc03smarc-r3.0.0-smarccommoncb-r1.0
 ip-ku-m1-r1.0:mcom03r-ip-ku-m1-r1.0
 ip-ku-m1-r1.0:mcom03r-ip-ku-m1-r1.1
+mcom03bub-r1.3.0:mcom03r-mcom03bub-r1.3.0
 skifmsb-v2.0:mcom03r-skifmsb-v2.0-skifbs-v1.0
 skifmsb-v2.0:mcom03r-skifmsb-v2.0-skifmp-v2.0
 elvmc03q7-r3.3.0:mcom03r-elvmc03q7-r3.3.0-elvq7cb-r3.3.0
