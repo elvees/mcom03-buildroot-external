@@ -11,7 +11,7 @@
 [[ -v FDT ]] || FDT=mcom03r-elvmc03smarc-r3.0.0-elvsmarccb-r3.3.0-m238hca-l3b.dtb
 
 if [[ ! -v CMDLINE ]]; then
-    CMDLINE="${CONSOLE:+console=$CONSOLE} ${ROOT:+root=$ROOT rootfstype=ext4 ro rootflags=noload rootwait}"
+    CMDLINE="${CONSOLE:+console=$CONSOLE} earlycon ${ROOT:+root=$ROOT rootfstype=ext4 ro rootflags=noload rootwait}"
 fi
 
 mkdir -p "${OUT%/*}"

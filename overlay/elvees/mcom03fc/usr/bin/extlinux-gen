@@ -10,7 +10,7 @@
 [[ -v CONSOLE ]] || CONSOLE=ttyS0,115200n8
 
 if [[ ! -v CMDLINE ]]; then
-    CMDLINE="${CONSOLE:+console=$CONSOLE} ${ROOT:+root=$ROOT rootfstype=ext4 ro rootflags=noload rootwait}"
+    CMDLINE="${CONSOLE:+console=$CONSOLE} earlycon ${ROOT:+root=$ROOT rootfstype=ext4 ro rootflags=noload rootwait}"
 fi
 
 if [[ -v FDT ]]; then
