@@ -78,4 +78,7 @@
     # Feel free to edit jobs below
     experimental:
       jobs:
-        - mcom03r-fc-priv-buildroot-build
+        - mcom03r-linux66-buildroot-build
+        - mcom03r-linux66-sw-smarc3.0.0-smarccb3.3.0-tests:
+            dependencies:
+              mcom03r-linux66-buildroot-build
