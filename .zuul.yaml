@@ -39,7 +39,7 @@
               - .*-felix
               - .*-rogue-
               - .*-vpu-
-              - configs/mcom03r_defconfig$
+              - .*mcom03r.*
               - fragments/private.fragment$
         - mcom03r-fc-priv-buildroot-build:
             files:
@@ -59,7 +59,7 @@
               - .*-felix.*
               - .*-rogue-.*
               - .*-vpu-.*
-              - configs/mcom03r_defconfig$
+              - .*mcom03r.*
               - fragments/linux618.fragment$
               - fragments/private.fragment$
         - mcom03r-linux618-buildroot-build:
