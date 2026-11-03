@@ -4,8 +4,18 @@ uboot_dtb = "mcom03r-elvmc03ce-r3.2.0-elvcecb-r3.3.0"
 boot_types = ["xip", "bootrom"]
 
 [[configs]]
+ddrinit_defconfig = "elvmc03ce-r3.2.0"
+uboot_dtb = "mcom03r-elvmc03ce-r3.2.0-salute-pm-ett-sce-r2.0.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
 ddrinit_defconfig = "elvmc03q7-r3.3.0"
 uboot_dtb = "mcom03r-elvmc03q7-r3.3.0-elvq7cb-r3.3.0"
+boot_types = ["xip", "bootrom"]
+
+[[configs]]
+ddrinit_defconfig = "elvmc03q7-r3.3.0"
+uboot_dtb = "mcom03r-elvmc03q7-r3.3.0-salute-pm-ett-sq7-r2.0.0"
 boot_types = ["xip", "bootrom"]
 
 [[configs]]
